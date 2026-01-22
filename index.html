@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Station Pro - AI Prompt Manager</title>
-    <meta name="description" content="Stop retyping prompts. Insert them instantly with 'Enter'. Lifetime license.">
+    <title>Prompt Station - Free Universal AI Prompt Manager</title>
+    <meta name="description" content="100% Free. Unlimited tags. Support ChatGPT, Gemini, Copilot & Local AI. Privacy-first.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -22,198 +22,144 @@
     </script>
     <style>
         body { background-color: #050505; color: #ffffff; }
-        .gradient-text { background: linear-gradient(90deg, #4285f4, #a782ee); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glow { box-shadow: 0 0 20px rgba(66, 133, 244, 0.3); }
+        .hero-glow {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 600px; height: 600px; background: radial-gradient(circle, rgba(66,133,244,0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1; pointer-events: none;
+        }
+        .feature-card {
+            background: #1c1c1e; border: 1px solid #333; transition: all 0.3s ease;
+        }
+        .feature-card:hover { border-color: #4285f4; transform: translateY(-5px); }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-blue-500 selection:text-white">
+<body class="antialiased selection:bg-brand-accent selection:text-white">
 
-    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0 font-mono font-bold text-xl tracking-tighter cursor-pointer" onclick="window.scrollTo(0,0)">
-                    &lt;PromptStation /&gt;
-                </div>
-                <div class="flex items-center gap-6">
-                    <div class="hidden md:flex space-x-8">
-                        <a href="#features" class="hover:text-blue-400 transition" data-i18n="nav_features">功能</a>
-                        <a href="#pricing" class="hover:text-blue-400 transition" data-i18n="nav_pricing">價格</a>
-                        <a href="manual.html" class="hover:text-blue-400 transition" data-i18n="nav_docs">使用教學</a>
-                        <a href="#faq" class="hover:text-blue-400 transition" data-i18n="nav_faq">FAQ</a>
-                    </div>
-                    <button id="lang-toggle" class="border border-white/20 px-3 py-1 rounded text-xs font-mono hover:bg-white/10 transition">
-                        EN / 中
-                    </button>
-                    <a href="https://chromewebstore.google.com/" target="_blank" class="bg-white text-black px-4 py-2 rounded-lg font-bold hover:bg-gray-200 transition text-sm" data-i18n="nav_download">
-                        下載擴充
-                    </a>
-                </div>
+    <nav class="fixed w-full z-50 bg-brand-dark/90 backdrop-blur border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-bolt text-brand-accent text-xl"></i>
+                <span class="font-bold text-lg tracking-tight">PROMPT STATION</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="manual.html" class="text-gray-400 hover:text-white text-sm font-medium transition" data-i18n="nav_manual">User Manual</a>
+                <button id="lang-toggle" class="text-xs border border-gray-700 rounded px-2 py-1 text-gray-400 hover:text-white transition">EN / 中</button>
+                <a href="#" class="bg-white text-black px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition flex items-center gap-2">
+                    <i class="fa-brands fa-chrome"></i> <span data-i18n="nav_download">Download</span>
+                </a>
             </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 text-center relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] -z-10"></div>
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-mono mb-6">
-                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                v6.1 Stable Release
+    <section class="relative pt-32 pb-20 px-6 text-center overflow-hidden">
+        <div class="hero-glow"></div>
+        <div class="max-w-4xl mx-auto">
+            <div class="inline-block mb-4 px-3 py-1 rounded-full border border-brand-purple/30 bg-brand-purple/10 text-brand-purple text-xs font-mono font-bold tracking-wider">
+                V6.2 UPDATE: NOW 100% FREE & UNLIMITED
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
-                <span data-i18n="hero_title_1">Stop Renting Your</span><br>
-                <span class="gradient-text" data-i18n="hero_title_2">Productivity.</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6">
+                Master Your AI Workflow<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-purple">Without Limits.</span>
             </h1>
-            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto" data-i18n="hero_desc">
-                別再重複輸入指令。按一下 Enter，瞬間召喚你的專屬 Prompt。<br>支援 ChatGPT, Gemini, Copilot。拒絕訂閱制。
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed" data-i18n="hero_desc">
+                The ultimate prompt manager for ChatGPT, Gemini, Copilot & Local AI. No subscriptions. No limits. Just pure productivity.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#pricing" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition glow flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-rocket"></i> <span data-i18n="btn_buy">立即升級 PRO</span>
+                <a href="#" class="bg-brand-accent hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-chrome"></i> <span data-i18n="hero_cta">Add to Chrome - It's Free</span>
                 </a>
-                <a href="https://chromewebstore.google.com/" target="_blank" class="border border-white/20 hover:bg-white/10 px-8 py-4 rounded-xl font-bold text-lg transition flex items-center justify-center gap-2">
-                    <i class="fa-brands fa-chrome"></i> <span data-i18n="btn_chrome">Chrome 商店下載</span>
+                <a href="#features" class="border border-gray-700 hover:border-white text-gray-300 hover:text-white px-8 py-4 rounded-xl font-medium transition" data-i18n="hero_learn">
+                    Learn More
                 </a>
             </div>
-            <div class="mt-16 relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                <div class="relative bg-gray-900 rounded-xl border border-white/10 overflow-hidden shadow-2xl">
-                    <img src="demo.png" alt="App Screenshot" class="w-full h-auto">
-                </div>
+            <div class="mt-12 text-sm text-gray-500 flex justify-center gap-8">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> No Sign-up</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Local Storage</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Unlimited Tags</span>
             </div>
         </div>
     </section>
 
-    <section id="features" class="py-20 bg-brand-card/30">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-                <span data-i18n="feat_title_pre">為什麼你需要</span> <span class="text-blue-500">Prompt Station Pro</span>?
-            </h2>
+    <section id="features" class="py-20 bg-brand-dark">
+        <div class="max-w-6xl mx-auto px-6">
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition">
-                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 mb-6 text-2xl"><i class="fa-solid fa-bolt"></i></div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="f1_title">Enter 鍵極速插入</h3>
-                    <p class="text-gray-400" data-i18n="f1_desc">不需要滑鼠，不需要複製貼上。輸入關鍵字，按下 Enter，萬字指令瞬間上膛。</p>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-keyboard text-brand-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="f1_title">Instant Injection</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="f1_desc">Select tags and press Enter. We handle the rest. Works seamlessly on ChatGPT, Gemini, and Copilot.</p>
                 </div>
-                <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition">
-                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-400 mb-6 text-2xl"><i class="fa-solid fa-lock"></i></div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="f2_title">100% 本地端隱私</h3>
-                    <p class="text-gray-400" data-i18n="f2_desc">你的商業機密 Prompt 只存在你的瀏覽器裡。我們沒有伺服器，絕不偷看你的資料。</p>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-tags text-brand-purple text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="f2_title">Unlimited Tags</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="f2_desc">No more "3 tags limit". Create infinite groups, prompts, and rules. Organize your library your way.</p>
                 </div>
-                <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-green-500/50 transition">
-                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center text-green-400 mb-6 text-2xl"><i class="fa-solid fa-globe"></i></div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="f3_title">全平台制霸</h3>
-                    <p class="text-gray-400" data-i18n="f3_desc">無論你用 ChatGPT、Gemini 還是 Copilot，一個外掛搞定所有平台。無縫切換。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="py-20">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">
-                <span data-i18n="price_title_1">拒絕月費，</span><span class="gradient-text" data-i18n="price_title_2">終身擁有</span>
-            </h2>
-            <p class="text-center text-gray-400 mb-16" data-i18n="price_sub">就像買一杯星巴克，但這杯咖啡能幫你省下無數小時。</p>
-
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="p-8 rounded-2xl bg-white/5 border border-white/10 flex flex-col">
-                    <h3 class="text-xl font-bold text-gray-300">Starter</h3>
-                    <div class="text-4xl font-bold mt-4 mb-2" data-i18n="price_val_free">$0</div>
-                    <p class="text-gray-500 text-sm mb-8" data-i18n="plan_free_sub">適合輕量級體驗者</p>
-                    <ul class="space-y-4 mb-8 flex-1 text-gray-300">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-500"></i> <span data-i18n="pf_1">儲存 3 個 Prompt</span></li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-500"></i> <span data-i18n="pf_2">基礎功能使用</span></li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-500"></i> <span data-i18n="pf_3">本地端儲存</span></li>
-                    </ul>
-                    <a href="https://chromewebstore.google.com/" target="_blank" class="w-full py-3 rounded-lg border border-white/20 hover:bg-white/10 text-center transition font-bold" data-i18n="btn_free">下載免費版</a>
-                </div>
-
-                <div class="relative p-8 rounded-2xl bg-gradient-to-b from-blue-900/20 to-black border border-blue-500/50 flex flex-col shadow-2xl">
-                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">POPULAR</div>
-                    <h3 class="text-xl font-bold text-white">PRO License</h3>
-                    <div class="text-4xl font-bold mt-4 mb-2" data-i18n="price_val_pro">$9.99 <span class="text-lg text-gray-400 font-normal">/ lifetime</span></div>
-                    
-                    <p class="text-gray-400 text-sm mb-8" data-i18n="plan_pro_sub">一次付費，終身享受高效率</p>
-                    <ul class="space-y-4 mb-8 flex-1 text-white">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-blue-400"></i> <strong data-i18n="pp_1">無限量儲存 Prompt</strong></li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-blue-400"></i> <span data-i18n="pp_2">解鎖 Rule 自動注入</span></li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-blue-400"></i> <span data-i18n="pp_3">JSON 匯入匯出</span></li>
-                    </ul>
-                    <a href="https://promptlogic.lemonsqueezy.com/checkout/buy/876dbd48-1e8a-4273-99ec-9d94260420a9" target="_blank" class="w-full py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-center transition font-bold text-white shadow-lg shadow-blue-600/20" data-i18n="btn_buy_now">
-                        立即購買 ($9.99)
-                    </a>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-server text-green-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="f3_title">Local AI Ready</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="f3_desc">Support for Ollama, Open WebUI, and Custom Domains (localhost). Perfect for private, offline workflows.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="faq" class="py-20 bg-brand-card/30">
-        <div class="max-w-3xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">FAQ</h2>
-            <div class="space-y-6">
-                <div>
-                    <h4 class="font-bold text-lg mb-2 text-white"><i class="fa-regular fa-circle-question mr-2 text-blue-500"></i> <span data-i18n="q1">真的只需要付一次錢嗎？</span></h4>
-                    <p class="text-gray-400 pl-7" data-i18n="a1">是的。我們討厭訂閱制。付費一次 $9.99，你就可以獲得終身授權序號。</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-2 text-white"><i class="fa-regular fa-circle-question mr-2 text-blue-500"></i> <span data-i18n="q2">我的資料安全嗎？</span></h4>
-                    <p class="text-gray-400 pl-7" data-i18n="a2">絕對安全。採用「本地端優先」架構，資料只儲存在瀏覽器內，我們無法存取。</p>
+    <section class="py-20 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6" data-i18n="why_title">Free & Open for Everyone</h2>
+            <p class="text-gray-400 mb-8 leading-relaxed max-w-2xl mx-auto" data-i18n="why_desc">
+                Prompt Station is a labor of love. We don't charge subscriptions, but servers and coffee aren't free. If you find value in this tool, your support means the world to us.
+            </p>
+            
+            <a href="https://paypal.me/PromptStationDev" target="_blank" class="inline-flex items-center gap-3 bg-[#0070BA] hover:bg-[#003087] text-white px-6 py-3 rounded-full font-bold transition shadow-lg shadow-blue-900/20">
+                <i class="fa-brands fa-paypal text-xl"></i>
+                <span data-i18n="btn_donate">Donate via PayPal</span>
+            </a>
+            
+            <div class="mt-6">
+                <div class="inline-flex items-center gap-2 text-brand-accent border border-brand-accent/30 bg-brand-accent/10 px-4 py-2 rounded-lg text-sm">
+                    <i class="fa-solid fa-heart"></i> <span data-i18n="why_badge">Community Supported</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center border-t border-white/10 text-sm text-gray-500">
-        <p>&copy; 2026 Prompt Station Pro. <span data-i18n="footer_dev">Independent Developer.</span></p>
+    <footer class="py-12 border-t border-gray-800 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Prompt Station. Independent Developer.</p>
+        <div class="flex justify-center gap-6 mt-4">
+            <a href="manual.html" class="hover:text-white">Manual</a>
+            <a href="#" class="hover:text-white">Privacy Policy</a>
+            <a href="mailto:hello@promptstation.app" class="hover:text-white">Contact</a>
+        </div>
     </footer>
 
     <script>
         const translations = {
             zh: {
-                nav_features: "功能", nav_pricing: "價格", nav_docs: "使用教學",nav_faq: "FAQ", nav_download: "下載擴充",
-                hero_title_1: "別再租用你的", hero_title_2: "生產力。",
-                hero_desc: "別再重複輸入指令。按一下 Enter，瞬間召喚你的專屬 Prompt。<br>支援 ChatGPT, Gemini, Copilot。拒絕訂閱制。",
-                btn_buy: "立即升級 PRO", btn_chrome: "Chrome 商店下載",
-                feat_title_pre: "為什麼你需要", 
-                f1_title: "Enter 鍵極速插入", f1_desc: "不需要滑鼠，不需要複製貼上。輸入關鍵字，按下 Enter，萬字指令瞬間上膛。",
-                f2_title: "100% 本地端隱私", f2_desc: "你的商業機密 Prompt 只存在你的瀏覽器裡。我們沒有伺服器，絕不偷看你的資料。",
-                f3_title: "全平台制霸", f3_desc: "無論你用 ChatGPT、Gemini 還是 Copilot，一個外掛搞定所有平台。無縫切換。",
-                price_title_1: "拒絕月費，", price_title_2: "終身擁有",
-                price_sub: "就像買一杯星巴克，但這杯咖啡能幫你省下無數小時。",
-                
-                // 價格數字在地化
-                price_val_free: "$0",
-                price_val_pro: "$9.99 <span class='text-lg text-gray-400 font-normal'>(約 NT$320)</span>",
-                
-                plan_free_sub: "適合輕量級體驗者", pf_1: "儲存 3 個 Prompt", pf_2: "基礎功能使用", pf_3: "本地端儲存", btn_free: "下載免費版",
-                plan_pro_sub: "一次付費，終身享受高效率", pp_1: "無限量儲存 Prompt", pp_2: "解鎖 Rule 自動注入", pp_3: "JSON 匯入匯出", 
-                btn_buy_now: "立即購買 ($9.99)",
-                
-                q1: "真的只需要付一次錢嗎？", a1: "是的。我們討厭訂閱制。付費一次 $9.99，你就可以獲得終身授權序號。",
-                q2: "我的資料安全嗎？", a2: "絕對安全。採用「本地端優先」架構，資料只儲存在瀏覽器內，我們無法存取。",
-                footer_dev: "獨立開發者。"
+                nav_manual: "使用手冊", nav_download: "下載擴充功能",
+                hero_desc: "完全免費。支援 ChatGPT、Gemini、Copilot 與本地 AI (Ollama)。無限標籤，一鍵發送，隱私優先。",
+                hero_cta: "加到 Chrome (免費)", hero_learn: "了解更多",
+                f1_title: "一鍵發送 (Enter)", f1_desc: "選好標籤，按下 Enter 鍵，指令自動填入並發送。支援所有主流 AI 平台。",
+                f2_title: "無限標籤管理", f2_desc: "V6.2 版本已解除所有限制。您可以建立無限個群組、提示詞與規則。",
+                f3_title: "支援本地 AI", f3_desc: "完美支援 Ollama、Open WebUI 與自訂網域 (localhost)。離線工作流的最佳夥伴。",
+                why_title: "為什麼免費？", why_desc: "我們也是開發者，我們討厭為了簡單工具付月費。Prompt Station 是我們自己想用的工具：無廣告、無追蹤、純粹高效。如果這對你有幫助，歡迎贊助一杯咖啡！",
+                btn_donate: "贊助開發者 (PayPal)",
+                why_badge: "社群驅動專案"
             },
             en: {
-                nav_features: "Features", nav_pricing: "Pricing",nav_docs: "User Manual", nav_faq: "FAQ", nav_download: "Download",
-                hero_title_1: "Stop Renting Your", hero_title_2: "Productivity.",
-                hero_desc: "Stop retyping prompts. Insert them instantly with 'Enter'.<br>Works on ChatGPT, Gemini, Copilot. No monthly fees.",
-                btn_buy: "Get PRO License", btn_chrome: "Chrome Web Store",
-                feat_title_pre: "Why do you need", 
-                f1_title: "Enter Key Magic", f1_desc: "No mouse needed. Just type your keyword and hit Enter to inject prompts instantly.",
-                f2_title: "100% Local Privacy", f2_desc: "Your prompts stay in your browser. No servers, no data leaks. Your secrets are safe.",
-                f3_title: "All-in-One Tool", f3_desc: "Works seamlessly across ChatGPT, Gemini, and Copilot. One extension rules them all.",
-                price_title_1: "No Subscriptions,", price_title_2: "Own it Forever.",
-                price_sub: "Cost less than a few coffees, save you hundreds of hours.",
-                
-                // Price numbers in EN
-                price_val_free: "$0",
-                price_val_pro: "$9.99 <span class='text-lg text-gray-400 font-normal'>/ lifetime</span>",
-
-                plan_free_sub: "For casual users", pf_1: "Save 3 Prompts", pf_2: "Basic Features", pf_3: "Local Storage", btn_free: "Download Free",
-                plan_pro_sub: "Pay once, use forever", pp_1: "Unlimited Prompts", pp_2: "Auto Rule Injection", pp_3: "Import / Export JSON", btn_buy_now: "Buy Now ($9.99)",
-                q1: "Is it really a one-time payment?", a1: "Yes. We hate subscriptions too. Pay $9.99 once and get a lifetime license.",
-                q2: "Is my data safe?", a2: "Absolutely. We use a 'Local-First' architecture. Your data never leaves your browser.",
-                footer_dev: "Independent Developer."
+                nav_manual: "User Manual", nav_download: "Download",
+                hero_desc: "The ultimate prompt manager for ChatGPT, Gemini, Copilot & Local AI. No subscriptions. No limits. Just pure productivity.",
+                hero_cta: "Add to Chrome - It's Free", hero_learn: "Learn More",
+                f1_title: "Instant Injection", f1_desc: "Select tags and press Enter. We handle the rest. Works seamlessly on ChatGPT, Gemini, and Copilot.",
+                f2_title: "Unlimited Tags", f2_desc: "No more limits. Create infinite groups, prompts, and rules. Organize your library your way.",
+                f3_title: "Local AI Ready", f3_desc: "Support for Ollama, Open WebUI, and Custom Domains (localhost). Perfect for private, offline workflows.",
+                why_title: "Free & Open for Everyone", why_desc: "Prompt Station is a labor of love. We don't charge subscriptions, but servers and coffee aren't free. If you find value in this tool, your support means the world to us.",
+                btn_donate: "Donate via PayPal",
+                why_badge: "Community Supported"
             }
         };
 
@@ -232,7 +178,6 @@
             updateLang();
         };
 
-        // Initialize
         updateLang();
     </script>
 </body>
