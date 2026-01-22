@@ -13,6 +13,7 @@
         h2 { border-left: 4px solid var(--accent); padding-left: 10px; margin-top: 40px; color: #fff; }
         .step { background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; }
         .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.9em; background: #333; color: #ddd; }
+        .note { background: #332b00; border-left: 4px solid #ffcc00; padding: 10px 15px; margin-top: 10px; font-size: 0.9em; color: #ffeb99; border-radius: 4px; }
         footer { text-align: center; padding: 40px; color: #666; font-size: 0.9em; border-top: 1px solid var(--border); margin-top: 60px; }
         button { background: transparent; border: 1px solid #666; color: #aaa; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
         button:hover { color: #fff; border-color: #fff; }
@@ -41,7 +42,10 @@
                 <p><strong>第一步：</strong> 安裝擴充功能後，釘選到瀏覽器右上角。</p>
                 <p><strong>第二步：</strong> 打開 ChatGPT、Gemini 或 Copilot 網頁。</p>
                 <p><strong>第三步：</strong> 點擊擴充功能圖示，點選您想要的標籤（例如 <span class="tag">翻譯</span> + <span class="tag">繁體中文</span>）。</p>
-                <p><strong>第四步：</strong> 在網頁對話框中按下 <strong>Enter</strong>，指令即會自動填入並發送。</p>
+                <p><strong>第四步：</strong> 確認對話框為 <strong>空白狀態 (沒有文字)</strong>，然後按下 <strong>Enter</strong>，指令即會自動填入並發送。</p>
+                <div class="note">
+                    ⚠️ <strong>注意：</strong> 若對話框內已有文字，外掛會自動暫停注入功能，讓您正常發送訊息（這是為了避免覆蓋您辛苦打的字）。
+                </div>
             </div>
 
             <h2>2. 本地 AI 設定 (Ollama)</h2>
@@ -61,6 +65,10 @@
 
             <h2>常見問題 (FAQ)</h2>
             <details>
+                <summary>Q: 為什麼按了 Enter 沒反應？</summary>
+                <p>A: 請檢查您的對話框是否為<strong>空白</strong>。如果裡面已經有文字（或是只有一個空白鍵），為了保護您的輸入內容，外掛不會執行注入。</p>
+            </details>
+            <details>
                 <summary>Q: 為什麼找不到付費升級的按鈕？</summary>
                 <p>A: 因為我們已經將 PRO 功能全面免費開放！現在不需要序號，安裝即享無限功能。</p>
             </details>
@@ -79,7 +87,10 @@
                 <p><strong>Step 1:</strong> Install the extension and pin it to your browser toolbar.</p>
                 <p><strong>Step 2:</strong> Open ChatGPT, Gemini, or Copilot.</p>
                 <p><strong>Step 3:</strong> Click the extension icon and select your tags (e.g., <span class="tag">Translate</span> + <span class="tag">Traditional Chinese</span>).</p>
-                <p><strong>Step 4:</strong> Press <strong>Enter</strong> in the chat box. The prompt will be injected automatically.</p>
+                <p><strong>Step 4:</strong> Ensure the chat input is <strong>EMPTY</strong>, then press <strong>Enter</strong>. The prompt will be injected automatically.</p>
+                <div class="note">
+                    ⚠️ <strong>Note:</strong> If the input box contains any text, the extension will disable injection to allow you to send your message normally (preventing overwrite).
+                </div>
             </div>
 
             <h2>2. Local AI Setup (Ollama)</h2>
@@ -98,6 +109,10 @@
             </div>
 
             <h2>FAQ</h2>
+            <details>
+                <summary>Q: Why does nothing happen when I press Enter?</summary>
+                <p>A: Please check if the chat box is <strong>empty</strong>. If there is any text (even a space), the extension will safeguard your input and NOT inject prompts.</p>
+            </details>
             <details>
                 <summary>Q: Where is the "Upgrade to PRO" button?</summary>
                 <p>A: We have made all PRO features free! You don't need a license key anymore. Just install and enjoy unlimited access.</p>
