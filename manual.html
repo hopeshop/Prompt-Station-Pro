@@ -12,8 +12,6 @@
         h1 { font-size: 2.5em; color: var(--accent); margin-bottom: 10px; }
         h2 { border-left: 4px solid var(--accent); padding-left: 10px; margin-top: 40px; color: #fff; }
         .step { background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; }
-        .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.9em; background: #333; color: #ddd; }
-        .note { background: #332b00; border-left: 4px solid #ffcc00; padding: 10px 15px; margin-top: 10px; font-size: 0.9em; color: #ffeb99; border-radius: 4px; }
         footer { text-align: center; padding: 40px; color: #666; font-size: 0.9em; border-top: 1px solid var(--border); margin-top: 60px; }
         button { background: transparent; border: 1px solid #666; color: #aaa; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
         button:hover { color: #fff; border-color: #fff; }
@@ -34,99 +32,91 @@
     <div class="container">
         
         <div id="content-zh">
-            <h1>使用手冊 (V6.2)</h1>
-            <p>歡迎使用 Prompt Station。本版本已全面免費開放，包含無限標籤與本地 AI 支援。</p>
+            <h1>使用手冊 (V6.4)</h1>
+            <p>歡迎使用 Prompt Station。V6.4 版本已內建「右鍵快蒐 Inbox」功能，讓收集 Prompt 變得前所未有的簡單。</p>
 
-            <h2>1. 快速入門</h2>
+            <h2>1. 快速入門 (發送 Prompt)</h2>
             <div class="step">
-                <p><strong>第一步：</strong> 安裝擴充功能後，釘選到瀏覽器右上角。</p>
-                <p><strong>第二步：</strong> 打開 ChatGPT、Gemini 或 Copilot 網頁。</p>
-                <p><strong>第三步：</strong> 點擊擴充功能圖示，點選您想要的標籤（例如 <span class="tag">翻譯</span> + <span class="tag">繁體中文</span>）。</p>
-                <p><strong>第四步：</strong> 確認對話框為 <strong>空白狀態 (沒有文字)</strong>，然後按下 <strong>Enter</strong>，指令即會自動填入並發送。</p>
-                <div class="note">
-                    ⚠️ <strong>注意：</strong> 若對話框內已有文字，外掛會自動暫停注入功能，讓您正常發送訊息（這是為了避免覆蓋您辛苦打的字）。
-                </div>
+                <p><strong>第一步：</strong> 點擊擴充功能圖示，點選您想要的標籤。</p>
+                <p><strong>第二步：</strong> 確認對話框為 <strong>空白狀態</strong>，然後按下 <strong>Enter</strong>。</p>
+                <p><strong>支援平台：</strong> ChatGPT, Gemini, Copilot, DeepSeek, 以及任何 Local AI (Ollama)。</p>
             </div>
 
-            <h2>2. 本地 AI 設定 (Ollama)</h2>
+            <h2>2. 右鍵快蒐 (Inbox 蒐集)</h2>
             <div class="step">
-                <p>V6.2 版本支援本地端模型注入。</p>
+                <p>看到喜歡的 Prompt，不用切換視窗也能存！</p>
                 <ul>
-                    <li><strong>預設支援：</strong> <code>http://localhost:3000</code> (Open WebUI) 等常見位址。</li>
-                    <li><strong>自訂網域：</strong> 在擴充功能設定頁下方，輸入您的 IP (如 <code>192.168.1.50</code>) 並點擊 <strong>Add</strong>。</li>
+                    <li><strong>蒐集：</strong> 在任何網頁選取文字 ➔ 點擊滑鼠右鍵 ➔ 選擇 <strong>Save to Prompt Station</strong>。</li>
+                    <li><strong>整理：</strong> 點擊擴充功能圖示，您會看到上方出現 <strong>⚡ Inbox</strong> 區塊。</li>
+                    <li><strong>入庫：</strong> 點擊 Inbox 項目旁的 <strong>[Edit]</strong>，文字會自動帶入編輯區，您可以為它命名並存成永久標籤。</li>
                 </ul>
             </div>
 
-            <h2>3. 備份與還原</h2>
+            <h2>3. 本地 AI 設定 (Ollama)</h2>
             <div class="step">
-                <p>為防止資料遺失，請定期備份。</p>
-                <p>點擊擴充功能內的 <strong>[Export JSON]</strong> 即可下載備份檔。換電腦時，使用 <strong>[Import JSON]</strong> 即可還原所有設定。</p>
+                <p>支援本地端模型注入 (Localhost)。</p>
+                <ul>
+                    <li><strong>預設支援：</strong> <code>http://localhost:3000</code> 等常見位址。</li>
+                    <li><strong>自訂網域：</strong> 在設定頁下方輸入您的 IP 並點擊 <strong>Add</strong> 即可支援私有伺服器。</li>
+                </ul>
             </div>
 
             <h2>常見問題 (FAQ)</h2>
             <details>
-                <summary>Q: 為什麼按了 Enter 沒反應？</summary>
-                <p>A: 請檢查您的對話框是否為<strong>空白</strong>。如果裡面已經有文字（或是只有一個空白鍵），為了保護您的輸入內容，外掛不會執行注入。</p>
+                <summary>Q: Inbox 的資料存在哪裡？</summary>
+                <p>A: 100% 存在您的瀏覽器本地資料庫 (Chrome Storage Local)，不會上傳雲端，請放心存取私密內容。</p>
             </details>
             <details>
-                <summary>Q: 為什麼找不到付費升級的按鈕？</summary>
-                <p>A: 因為我們已經將 PRO 功能全面免費開放！現在不需要序號，安裝即享無限功能。</p>
-            </details>
-            <details>
-                <summary>Q: 我的資料存在哪裡？</summary>
-                <p>A: 您的資料 100% 儲存在您的瀏覽器本地端 (Local Storage)，我們沒有雲端資料庫，不會上傳您的隱私。</p>
+                <summary>Q: 為什麼右鍵選單沒出現？</summary>
+                <p>A: 請確認您有「選取文字」。如果沒有選取文字，為了保持選單乾淨，選項會自動隱藏。</p>
             </details>
         </div>
 
         <div id="content-en" style="display: none;">
-            <h1>User Manual (V6.2)</h1>
-            <p>Welcome to Prompt Station. This version is now fully free, including unlimited tags and Local AI support.</p>
+            <h1>User Manual (V6.4)</h1>
+            <p>Welcome to Prompt Station V6.4, featuring the built-in "Quick Capture Inbox" for seamless prompt collection.</p>
 
-            <h2>1. Quick Start</h2>
+            <h2>1. Quick Start (Injecting Prompts)</h2>
             <div class="step">
-                <p><strong>Step 1:</strong> Install the extension and pin it to your browser toolbar.</p>
-                <p><strong>Step 2:</strong> Open ChatGPT, Gemini, or Copilot.</p>
-                <p><strong>Step 3:</strong> Click the extension icon and select your tags (e.g., <span class="tag">Translate</span> + <span class="tag">Traditional Chinese</span>).</p>
-                <p><strong>Step 4:</strong> Ensure the chat input is <strong>EMPTY</strong>, then press <strong>Enter</strong>. The prompt will be injected automatically.</p>
-                <div class="note">
-                    ⚠️ <strong>Note:</strong> If the input box contains any text, the extension will disable injection to allow you to send your message normally (preventing overwrite).
-                </div>
+                <p><strong>Step 1:</strong> Click the extension icon and select your tags.</p>
+                <p><strong>Step 2:</strong> Ensure the chat input is <strong>EMPTY</strong>, then press <strong>Enter</strong>.</p>
+                <p><strong>Supported:</strong> ChatGPT, Gemini, Copilot, DeepSeek, and Local AI (Ollama).</p>
             </div>
 
-            <h2>2. Local AI Setup (Ollama)</h2>
+            <h2>2. Quick Capture (Inbox)</h2>
             <div class="step">
-                <p>V6.2 supports local model injection.</p>
+                <p>Save prompts without breaking your flow!</p>
                 <ul>
-                    <li><strong>Default Support:</strong> Works with <code>http://localhost:3000</code> (Open WebUI) and standard ports.</li>
-                    <li><strong>Custom Domain:</strong> Scroll to the bottom of the extension popup, enter your IP (e.g., <code>192.168.1.50</code>), and click <strong>Add</strong>.</li>
+                    <li><strong>Capture:</strong> Select text on any webpage ➔ Right-click ➔ Select <strong>Save to Prompt Station</strong>.</li>
+                    <li><strong>Review:</strong> Open the extension popup. You'll see a new <strong>⚡ Inbox</strong> section at the top.</li>
+                    <li><strong>Save:</strong> Click <strong>[Edit]</strong> next to an item to load it into the editor, then save it as a permanent tag.</li>
                 </ul>
             </div>
 
-            <h2>3. Backup & Restore</h2>
+            <h2>3. Local AI Setup</h2>
             <div class="step">
-                <p>Regularly backup your library to prevent data loss.</p>
-                <p>Click <strong>[Export JSON]</strong> inside the extension to download a backup. Use <strong>[Import JSON]</strong> to restore your settings on a new device.</p>
+                <p>Supports Localhost and Custom Domains.</p>
+                <ul>
+                    <li><strong>Default:</strong> Works with <code>http://localhost:3000</code> and standard ports.</li>
+                    <li><strong>Custom:</strong> Enter your IP in the settings area and click <strong>Add</strong> to support private servers.</li>
+                </ul>
             </div>
 
             <h2>FAQ</h2>
             <details>
-                <summary>Q: Why does nothing happen when I press Enter?</summary>
-                <p>A: Please check if the chat box is <strong>empty</strong>. If there is any text (even a space), the extension will safeguard your input and NOT inject prompts.</p>
+                <summary>Q: Where is Inbox data stored?</summary>
+                <p>A: 100% locally in your browser (Chrome Storage Local). No cloud sync.</p>
             </details>
             <details>
-                <summary>Q: Where is the "Upgrade to PRO" button?</summary>
-                <p>A: We have made all PRO features free! You don't need a license key anymore. Just install and enjoy unlimited access.</p>
-            </details>
-            <details>
-                <summary>Q: Where is my data stored?</summary>
-                <p>A: Your data is stored 100% locally in your browser (Local Storage). We have no cloud database and do not track your usage.</p>
+                <summary>Q: Why don't I see the right-click menu?</summary>
+                <p>A: Ensure you have <strong>selected text</strong>. The menu item is hidden when no text is selected.</p>
             </details>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Prompt Station. Independent Developer.</p>
+        <p>&copy; 2026 Prompt Station.</p>
         <p style="margin-top: 10px;">
             <a href="mailto:hopeshop999@gmail.com">Contact Developer</a>
         </p>
