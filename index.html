@@ -3,114 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Station - Capture & Manage AI Prompts</title>
-    <meta name="description" content="100% Free. Right-click capture. Unlimited tags. Support ChatGPT, Gemini, Copilot & Local AI. Export chat history to Markdown.">
-    
+    <title>Prompt Station - AI Engineer's OS</title>
+    <meta name="description" content="Capture prompts, manage context, and export chat history. The ultimate browser extension for AI engineering.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
-                    colors: { brand: { dark: '#0f0f0f', card: '#1c1c1e', accent: '#4285f4', purple: '#a782ee' } }
+                    colors: { 
+                        bg: '#050505', 
+                        card: '#111111', 
+                        border: '#222222',
+                        accent: '#3b82f6', 
+                        accentHover: '#2563eb' 
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1a1a1a 1px, transparent 1px), linear-gradient(to bottom, #1a1a1a 1px, transparent 1px)"
+                    }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #050505; color: #f5f5f7; }
-        .gradient-text { background: linear-gradient(135deg, #4285f4 0%, #a782ee 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .feature-card { transition: all 0.3s ease; border: 1px solid #333; }
-        .feature-card:hover { transform: translateY(-5px); border-color: #4285f4; box-shadow: 0 10px 30px -10px rgba(66, 133, 244, 0.2); }
+        body { background-color: #050505; color: #e5e5e5; }
+        .bg-grid { background-size: 40px 40px; mask-image: linear-gradient(to bottom, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%); }
+        .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-nav { background: rgba(5, 5, 5, 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .feature-card:hover { transform: translateY(-4px); border-color: #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-accent selection:text-white">
 
-    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-bolt text-brand-accent text-xl"></i>
-                <span class="font-bold text-xl tracking-tight">Prompt Station <span class="text-xs text-gray-500 bg-gray-800 px-1.5 py-0.5 rounded ml-1">v6.3</span></span>
+    <div class="fixed inset-0 z-[-1] bg-grid-pattern bg-grid opacity-20 pointer-events-none"></div>
+
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/20">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <span class="font-bold text-xl tracking-tight text-white">Prompt Station <span class="text-[10px] text-blue-300 bg-blue-900/30 border border-blue-500/30 px-1.5 py-0.5 rounded ml-1 font-mono">v6.3</span></span>
             </div>
-            <div class="flex items-center gap-6">
-                <button id="lang-toggle" class="text-sm text-gray-400 hover:text-white transition font-mono">EN / 中文</button>
-                <a href="manual.html" class="text-sm text-gray-400 hover:text-white transition" data-i18n="nav_manual">Manual</a>
-                <a href="https://chrome.google.com/webstore/detail/your-id-here" target="_blank" class="bg-white text-black px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition" data-i18n="nav_install">Get Extension</a>
+            <div class="flex items-center gap-8">
+                <button id="lang-toggle" class="text-sm text-gray-400 hover:text-white transition font-mono hover:bg-white/5 px-3 py-1 rounded">EN / 中文</button>
+                <a href="manual.html" class="text-sm text-gray-400 hover:text-white transition font-medium" data-i18n="nav_manual">Manual</a>
+                <a href="https://chrome.google.com/webstore/detail/your-id-here" target="_blank" class="group relative px-5 py-2.5 rounded-full bg-white text-black font-bold text-sm transition hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] overflow-hidden">
+                    <span class="relative z-10 flex items-center gap-2" data-i18n="nav_install">Get Extension <i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i></span>
+                </a>
             </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 px-6 text-center max-w-4xl mx-auto">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 text-brand-accent text-xs font-mono mb-6 border border-brand-accent/20">
-            <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
-            <span data-i18n="hero_badge">New in V6.3: Export Chat & Shadow DOM Engine</span>
+    <section class="pt-40 pb-20 px-6 text-center max-w-5xl mx-auto relative">
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 blur-[120px] rounded-full pointer-events-none z-[-1]"></div>
+        
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-border/50 text-blue-400 text-xs font-mono mb-8 border border-white/10 hover:border-blue-500/50 transition cursor-default">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+            <span data-i18n="hero_badge">UPDATE: Chat Export & Local AI Engine</span>
         </div>
-        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
-            <span data-i18n="hero_title_1">The Operating System</span><br>
-            <span class="gradient-text" data-i18n="hero_title_2">for AI Engineers</span>
+        
+        <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight mb-8 leading-[1.1]">
+            <span data-i18n="hero_title_1">The OS for</span><br>
+            <span class="gradient-text" data-i18n="hero_title_2">AI Engineers</span>
         </h1>
-        <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed" data-i18n="hero_desc">
-            Stop wrestling with copy-paste. Manage prompts, capture ideas with right-click, and export chat history. Works on ChatGPT, Gemini, Copilot & Local AI.
+        
+        <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light" data-i18n="hero_desc">
+            A developer-first prompt manager. Right-click to capture, press Enter to deploy. 
+            Supports ChatGPT, Gemini, Copilot & Local LLMs. 
+            <span class="text-white font-mono text-sm bg-white/5 px-1 rounded">100% Local Storage.</span>
         </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#" class="w-full sm:w-auto px-8 py-4 bg-brand-accent hover:bg-blue-600 text-white rounded-lg font-bold text-lg transition flex items-center justify-center gap-2">
-                <i class="fa-brands fa-chrome"></i> <span data-i18n="hero_cta">Add to Chrome - Free</span>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+            <a href="https://chrome.google.com/webstore/detail/your-id-here" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-accent hover:bg-accentHover text-white rounded-xl font-bold text-lg transition shadow-lg shadow-blue-600/20 flex items-center justify-center gap-3">
+                <i class="fa-brands fa-chrome"></i> <span data-i18n="hero_cta">Add to Chrome</span>
             </a>
-            <a href="#features" class="w-full sm:w-auto px-8 py-4 bg-brand-card hover:bg-gray-800 text-white rounded-lg font-semibold text-lg transition border border-white/10" data-i18n="hero_learn">
-                See Features
+            <a href="#features" class="w-full sm:w-auto px-8 py-4 bg-card hover:bg-border text-white rounded-xl font-semibold text-lg transition border border-white/10 flex items-center justify-center gap-2" data-i18n="hero_learn">
+                <i class="fa-solid fa-code"></i> Features
             </a>
         </div>
     </section>
 
-    <section id="features" class="py-20 bg-brand-card/30 border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-            <div class="feature-card p-8 rounded-2xl bg-brand-card">
-                <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 text-purple-400 text-2xl">
+    <section id="features" class="py-24 border-t border-white/5 bg-black/50">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div class="feature-card p-8 rounded-2xl bg-card border border-border group relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition">
+                    <i class="fa-solid fa-inbox text-8xl text-purple-500"></i>
+                </div>
+                <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 text-purple-400 text-2xl border border-purple-500/20 group-hover:scale-110 transition duration-300">
                     <i class="fa-solid fa-inbox"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-3" data-i18n="f1_title">Quick Capture (Inbox)</h3>
+                <h3 class="text-2xl font-bold mb-4 text-white" data-i18n="f1_title">Quick Capture</h3>
                 <p class="text-gray-400 leading-relaxed" data-i18n="f1_desc">
-                    See a great prompt while reading? Select text, <b>Right-click</b>, and Save. It goes straight to your Inbox without breaking your flow.
+                    Don't break your flow. Select text, <b>Right-click</b>, and send it straight to your Prompt Inbox. Organize later, stay focused now.
                 </p>
             </div>
 
-            <div class="feature-card p-8 rounded-2xl bg-brand-card">
-                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400 text-2xl">
+            <div class="feature-card p-8 rounded-2xl bg-card border border-border group relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition">
+                    <i class="fa-solid fa-bolt text-8xl text-blue-500"></i>
+                </div>
+                <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400 text-2xl border border-blue-500/20 group-hover:scale-110 transition duration-300">
                     <i class="fa-solid fa-bolt"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-3" data-i18n="f2_title">One-Click Deploy</h3>
+                <h3 class="text-2xl font-bold mb-4 text-white" data-i18n="f2_title">One-Click Deploy</h3>
                 <p class="text-gray-400 leading-relaxed" data-i18n="f2_desc">
-                    Click a tag in the extension, and it instantly inserts into ChatGPT, Gemini, or Copilot. Supports <b>Shadow DOM</b> detection.
+                    Select a tag, press Enter. Our <b>Shadow DOM Engine</b> handles the rest. Works on ChatGPT, Gemini, Copilot, and even custom WebUIs.
                 </p>
             </div>
 
-            <div class="feature-card p-8 rounded-2xl bg-brand-card">
-                <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center mb-6 text-green-400 text-2xl">
+            <div class="feature-card p-8 rounded-2xl bg-card border border-border group relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition">
+                    <i class="fa-solid fa-file-code text-8xl text-green-500"></i>
+                </div>
+                <div class="w-14 h-14 bg-green-500/10 rounded-xl flex items-center justify-center mb-6 text-green-400 text-2xl border border-green-500/20 group-hover:scale-110 transition duration-300">
                     <i class="fa-solid fa-file-export"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-3" data-i18n="f3_title">Export Chat History</h3>
+                <h3 class="text-2xl font-bold mb-4 text-white" data-i18n="f3_title">Export Chat History</h3>
                 <p class="text-gray-400 leading-relaxed" data-i18n="f3_desc">
-                    Save your valuable AI conversations. Export entire chat threads to <b>Markdown (.md)</b> format with a single click.
+                    Backup your knowledge. Export full chat threads to clean <b>Markdown (.md)</b> files. Perfect for documentation and sharing.
                 </p>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/10 text-center text-gray-500 text-sm">
-        <p>&copy; 2026 Prompt Station. <a href="privacy.html" class="underline hover:text-white">Privacy Policy</a></p>
+    <footer class="py-10 border-t border-white/10 text-center bg-black">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+            <p>&copy; 2026 Prompt Station. Built for Builders.</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <a href="privacy.html" class="hover:text-white transition">Privacy</a>
+                <a href="manual.html" class="hover:text-white transition">Manual</a>
+                <a href="mailto:hopeshop999@gmail.com" class="hover:text-white transition">Contact</a>
+            </div>
+        </div>
     </footer>
 
     <script>
         const translations = {
             zh: {
                 nav_manual: "使用手冊", nav_install: "免費安裝",
-                hero_badge: "V6.3 新功能：對話匯出 & Local AI 支援",
+                hero_badge: "V6.3 重大更新：對話匯出 & Local AI 引擎",
                 hero_title_1: "AI 工程師的", hero_title_2: "終極生產力系統",
-                hero_desc: "別再重複複製貼上了。右鍵快速收集靈感、一鍵發送指令、匯出對話記錄。支援 ChatGPT、Gemini、Copilot 與 Local AI。",
-                hero_cta: "加到 Chrome - 免費", hero_learn: "查看功能",
+                hero_desc: "告別重複複製貼上。右鍵收集靈感、Enter 一鍵注入指令、匯出 Markdown 對話記錄。專為 ChatGPT、Gemini 與 Local AI 打造。",
+                hero_cta: "加到 Chrome - 免費", hero_learn: "功能介紹",
                 f1_title: "右鍵靈感收集 (Inbox)", 
                 f1_desc: "看到不錯的 Prompt？選取文字並按右鍵即可儲存。靈感直接進入 Inbox，完全不打斷您的閱讀體驗。",
                 f2_title: "一鍵極速發送", 
@@ -120,16 +157,16 @@
             },
             en: {
                 nav_manual: "Manual", nav_install: "Get Extension",
-                hero_badge: "New in V6.3: Export Chat & Local AI Support",
-                hero_title_1: "The Operating System", hero_title_2: "for AI Engineers",
-                hero_desc: "Stop wrestling with copy-paste. Manage prompts, capture ideas with right-click, and export chat history. Works on ChatGPT, Gemini, Copilot & Local AI.",
+                hero_badge: "Update V6.3: Export Chat & Local AI Engine",
+                hero_title_1: "The OS for", hero_title_2: "AI Engineers",
+                hero_desc: "A developer-first prompt manager. Right-click to capture, press Enter to deploy. Supports ChatGPT, Gemini, Copilot & Local LLMs. 100% Local Storage.",
                 hero_cta: "Add to Chrome - Free", hero_learn: "See Features",
                 f1_title: "Quick Capture (Inbox)", 
-                f1_desc: "See a great prompt? Select text, Right-click, and Save. It goes straight to your Inbox without breaking your flow.",
+                f1_desc: "Don't break your flow. Select text, Right-click, and send it straight to your Prompt Inbox. Organize later, stay focused now.",
                 f2_title: "One-Click Deploy", 
-                f2_desc: "Select tags in the popup. We handle the typing. Features advanced Shadow DOM detection for maximum compatibility.",
+                f2_desc: "Select a tag, press Enter. Our Shadow DOM Engine handles the rest. Works on ChatGPT, Gemini, Copilot, and even custom WebUIs.",
                 f3_title: "Export Chat History", 
-                f3_desc: "Backup your valuable conversations. Export entire chat threads to clean Markdown (.md) format with a single click."
+                f3_desc: "Backup your knowledge. Export full chat threads to clean Markdown (.md) files. Perfect for documentation and sharing."
             }
         };
 

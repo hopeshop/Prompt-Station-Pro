@@ -1,134 +1,225 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Manual - Prompt Station V6.3</title>
+    <title>Documentation - Prompt Station V6.3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { bg: '#050505', card: '#111111', border: '#222222', accent: '#3b82f6' }
+                }
+            }
+        }
+    </script>
     <style>
-        :root { --bg: #0f0f0f; --card: #1c1c1e; --text: #f5f5f7; --accent: #4285f4; --border: #333; }
-        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; margin: 0; line-height: 1.6; }
-        nav { background: rgba(15,15,15,0.9); border-bottom: 1px solid var(--border); padding: 15px 5%; position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); }
-        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        h1 { font-size: 2.5em; color: var(--accent); margin-bottom: 10px; }
-        h2 { border-left: 4px solid var(--accent); padding-left: 10px; margin-top: 40px; color: #fff; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .step { background: var(--card); padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border); }
-        .tag { background: #333; color: #aaa; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; font-family: monospace; }
-        code { background: #222; padding: 2px 5px; border-radius: 4px; color: #a782ee; }
-        .btn-lang { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 10px; cursor: pointer; border-radius: 4px; }
-        .btn-lang:hover { color: #fff; border-color: #fff; }
+        body { background-color: #050505; color: #e5e5e5; }
+        .glass-nav { background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .step-card { border-left: 3px solid #333; transition: all 0.2s; }
+        .step-card:hover { border-left-color: #3b82f6; background-color: #111; }
+        code { background: rgba(59, 130, 246, 0.15); color: #93c5fd; padding: 2px 6px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary .fa-chevron-right { transform: rotate(90deg); }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
-    <nav>
-        <div style="font-weight: bold; color: var(--accent);">Prompt Station Manual</div>
-        <button class="btn-lang" onclick="toggleLang()">EN / 中文</button>
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="flex items-center gap-2 text-white hover:text-blue-400 transition">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span class="font-bold tracking-tight">Home</span>
+                </a>
+                <span class="text-gray-600">/</span>
+                <span class="font-mono text-blue-400 font-bold">Docs <span class="text-xs text-gray-500">v6.3</span></span>
+            </div>
+            <button id="btn-lang" class="text-xs border border-gray-700 hover:border-white px-3 py-1 rounded text-gray-400 hover:text-white transition font-mono">EN / 中文</button>
+        </div>
     </nav>
 
-    <div class="container">
+    <main class="pt-32 pb-20 px-6 max-w-3xl mx-auto">
         
+        <header class="mb-12">
+            <h1 class="text-4xl font-extrabold mb-4 text-white">User Manual</h1>
+            <p class="text-gray-400 text-lg">Mastering your workflow with Prompt Station V6.3</p>
+        </header>
+
         <div id="content-zh">
-            <h1>使用手冊 (V6.3)</h1>
-            <p>歡迎使用 Prompt Station。本手冊將協助您快速掌握 V6.3 的進階功能。</p>
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                    <span class="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center text-sm"><i class="fa-solid fa-inbox"></i></span>
+                    快速收集靈感 (Right-Click Inbox)
+                </h2>
+                <div class="bg-card border border-border rounded-xl p-6 step-card">
+                    <p class="mb-4 text-gray-300">別打斷閱讀流程。當您在瀏覽網頁看到不錯的 Prompt 或文案時：</p>
+                    <ol class="space-y-4 text-gray-400 list-decimal list-inside marker:text-blue-500">
+                        <li>使用滑鼠選取該段文字。</li>
+                        <li>點擊滑鼠右鍵，選擇 <strong class="text-white">「Save to Prompt Station」</strong>。</li>
+                        <li>該內容會立即儲存至擴充功能的 <strong>Inbox (收件匣)</strong>。</li>
+                        <li>之後打開擴充功能，您可以將 Inbox 的內容編輯並移動到正式標籤庫。</li>
+                    </ol>
+                </div>
+            </section>
 
-            <h2>1. 快速收集靈感 (Right-Click Inbox)</h2>
-            <div class="step">
-                <p>在瀏覽任何網頁時，看到想要保存的 Prompt 或文案：</p>
-                <ol>
-                    <li>選取該段文字。</li>
-                    <li>點擊滑鼠右鍵，選擇 <strong>「Save to Prompt Station」</strong>。</li>
-                    <li>該內容會立即儲存至擴充功能的 <strong>Inbox</strong> 區域。</li>
-                    <li>打開擴充功能視窗，您可以將 Inbox 的內容移動到正式標籤庫中。</li>
-                </ol>
-            </div>
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                    <span class="w-8 h-8 rounded-lg bg-green-500/10 text-green-400 flex items-center justify-center text-sm"><i class="fa-solid fa-file-export"></i></span>
+                    匯出對話記錄 (Export Chat)
+                </h2>
+                <div class="bg-card border border-border rounded-xl p-6 step-card">
+                    <p class="mb-4 text-gray-300">一鍵備份您與 AI 的珍貴對話，支援 Markdown 格式：</p>
+                    <ol class="space-y-4 text-gray-400 list-decimal list-inside marker:text-green-500">
+                        <li>在 ChatGPT、Gemini 或 Copilot 頁面上，打開擴充功能視窗。</li>
+                        <li>點擊介面底部的 <strong class="text-white">「Export Chat (.md)」</strong> 文字按鈕。</li>
+                        <li>系統會自動爬取當前頁面的完整對話，並下載為 <code>.md</code> 檔案。</li>
+                    </ol>
+                    <div class="mt-4 p-3 bg-blue-500/10 border border-blue-500/20 rounded text-sm text-blue-300">
+                        <i class="fa-solid fa-circle-info mr-2"></i> 支援平台：ChatGPT, Gemini, Copilot, Local AI WebUI。
+                    </div>
+                </div>
+            </section>
 
-            <h2>2. 匯出對話記錄 (Export Chat)</h2>
-            <div class="step">
-                <p>想備份 ChatGPT 或 Gemini 的對話嗎？</p>
-                <ol>
-                    <li>打開擴充功能視窗。</li>
-                    <li>點擊底部的 <strong>「Export Chat (.md)」</strong> 按鈕。</li>
-                    <li>系統會自動偵測當前頁面的對話內容，並下載為 Markdown 檔案。</li>
-                </ol>
-                <p><em>注意：支援 ChatGPT, Gemini, Copilot 及 Local AI 介面。</em></p>
-            </div>
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                    <span class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center text-sm"><i class="fa-solid fa-server"></i></span>
+                    Local AI 與自訂域名
+                </h2>
+                <div class="bg-card border border-border rounded-xl p-6 step-card">
+                    <p class="mb-4 text-gray-300">若您使用本地部署的 AI (如 Ollama, LM Studio) 或內網服務：</p>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">1</span>
+                            <span>在擴充功能視窗底部，點擊 <strong class="text-white">「Local AI / Custom Domain」</strong>。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">2</span>
+                            <span>輸入您的 IP 或網域 (例如 <code>localhost:3000</code> 或 <code>192.168.1.50</code>)。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">3</span>
+                            <span>點擊 <strong>Add</strong>。現在，Prompt Station 也能在該網站上運作了！</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
-            <h2>3. Local AI 與自訂域名</h2>
-            <div class="step">
-                <p>若您使用本地部署的 AI (如 Ollama, LM Studio) 或自架 WebUI：</p>
-                <ol>
-                    <li>在擴充功能底部找到 <strong>「Local AI / Custom Domain」</strong>。</li>
-                    <li>輸入您的 WebUI IP 位址或網域 (例如 <code>localhost:3000</code> 或 <code>192.168.1.50</code>)。</li>
-                    <li>點擊 <strong>Add</strong>。</li>
-                    <li>現在，Prompt Station 也能在該網站上運作了！</li>
-                </ol>
-            </div>
-
-            <h2>常見問題 (FAQ)</h2>
-            <details>
-                <summary>Q: 資料存在哪裡？會上傳雲端嗎？</summary>
-                <p>A: 不會。所有資料 100% 儲存在您的瀏覽器本地端 (Chrome Storage Local)。我們重視您的隱私。</p>
-            </details>
-            <details>
-                <summary>Q: 為什麼右鍵選單沒出現？</summary>
-                <p>A: 請確認您已經「選取了文字」。為了保持選單整潔，只有在選取文字時該選項才會出現。</p>
-            </details>
+            <section>
+                <h2 class="text-xl font-bold mb-6 text-gray-300">常見問題 (FAQ)</h2>
+                <div class="space-y-4">
+                    <details class="group bg-card border border-border rounded-lg overflow-hidden">
+                        <summary class="p-4 flex justify-between items-center font-medium hover:bg-white/5 transition text-gray-300">
+                            資料存在哪裡？會上傳雲端嗎？
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-600 transition-transform duration-200"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 text-sm border-t border-white/5 mt-2">
+                            不會。Prompt Station 遵守 <strong>Local-First</strong> 原則。所有資料 100% 儲存在您的瀏覽器本地端 (Chrome Storage Local)。我們沒有後端伺服器。
+                        </div>
+                    </details>
+                    <details class="group bg-card border border-border rounded-lg overflow-hidden">
+                        <summary class="p-4 flex justify-between items-center font-medium hover:bg-white/5 transition text-gray-300">
+                            為什麼右鍵選單沒出現？
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-600 transition-transform duration-200"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 text-sm border-t border-white/5 mt-2">
+                            為了保持選單整潔，只有在您 <strong>「選取了一段文字」</strong> 時，該選項才會出現。
+                        </div>
+                    </details>
+                </div>
+            </section>
         </div>
 
         <div id="content-en" style="display: none;">
-            <h1>User Manual (V6.3)</h1>
-            <p>Welcome to Prompt Station. This guide covers the advanced features of version 6.3.</p>
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                    <span class="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center text-sm"><i class="fa-solid fa-inbox"></i></span>
+                    Right-Click Inbox
+                </h2>
+                <div class="bg-card border border-border rounded-xl p-6 step-card">
+                    <p class="mb-4 text-gray-300">Capture ideas without breaking your flow:</p>
+                    <ol class="space-y-4 text-gray-400 list-decimal list-inside marker:text-blue-500">
+                        <li>Highlight any text on a webpage.</li>
+                        <li>Right-click and select <strong class="text-white">"Save to Prompt Station"</strong>.</li>
+                        <li>The text is instantly saved to your <strong>Inbox</strong>.</li>
+                        <li>Open the extension popup to manage or categorize items later.</li>
+                    </ol>
+                </div>
+            </section>
 
-            <h2>1. Right-Click Capture (Inbox)</h2>
-            <div class="step">
-                <p>Found a great prompt while browsing?</p>
-                <ol>
-                    <li>Select the text.</li>
-                    <li>Right-click and select <strong>"Save to Prompt Station"</strong>.</li>
-                    <li>The text is instantly saved to your <strong>Inbox</strong>.</li>
-                    <li>Open the extension popup to manage or categorize items from your Inbox later.</li>
-                </ol>
-            </div>
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                    <span class="w-8 h-8 rounded-lg bg-green-500/10 text-green-400 flex items-center justify-center text-sm"><i class="fa-solid fa-file-export"></i></span>
+                    Export Chat History
+                </h2>
+                <div class="bg-card border border-border rounded-xl p-6 step-card">
+                    <p class="mb-4 text-gray-300">Backup your conversations to Markdown:</p>
+                    <ol class="space-y-4 text-gray-400 list-decimal list-inside marker:text-green-500">
+                        <li>Open the extension popup on ChatGPT, Gemini, or Copilot.</li>
+                        <li>Click the <strong class="text-white">"Export Chat (.md)"</strong> button at the bottom.</li>
+                        <li>The system scrapes the current thread and downloads a <code>.md</code> file.</li>
+                    </ol>
+                </div>
+            </section>
 
-            <h2>2. Export Chat History</h2>
-            <div class="step">
-                <p>Need to backup your conversation?</p>
-                <ol>
-                    <li>Open the extension popup.</li>
-                    <li>Click the <strong>"Export Chat (.md)"</strong> button at the bottom.</li>
-                    <li>The extension scrapes the current conversation and downloads it as a Markdown file.</li>
-                </ol>
-                <p><em>Supported: ChatGPT, Gemini, Copilot, and Local AI interfaces.</em></p>
-            </div>
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                    <span class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center text-sm"><i class="fa-solid fa-server"></i></span>
+                    Local AI & Custom Domains
+                </h2>
+                <div class="bg-card border border-border rounded-xl p-6 step-card">
+                    <p class="mb-4 text-gray-300">Using Ollama, LM Studio, or a private WebUI?</p>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">1</span>
+                            <span>Click <strong class="text-white">"Local AI / Custom Domain"</strong> in the popup.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">2</span>
+                            <span>Enter IP or domain (e.g. <code>localhost:3000</code>).</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">3</span>
+                            <span>Click <strong>Add</strong>. The extension is now active on that site.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
-            <h2>3. Local AI & Custom Domains</h2>
-            <div class="step">
-                <p>Using Ollama, LM Studio, or a private WebUI?</p>
-                <ol>
-                    <li>Scroll to <strong>"Local AI / Custom Domain"</strong> in the popup.</li>
-                    <li>Enter your IP or domain (e.g., <code>localhost:3000</code> or <code>192.168.1.50</code>).</li>
-                    <li>Click <strong>Add</strong>.</li>
-                    <li>Prompt Station will now inject scripts into that domain to enable functionality.</li>
-                </ol>
-            </div>
-
-            <h2>FAQ</h2>
-            <details>
-                <summary>Q: Where is my data stored?</summary>
-                <p>A: 100% locally in your browser (Chrome Storage Local). No cloud sync, no tracking.</p>
-            </details>
-            <details>
-                <summary>Q: Why don't I see the right-click menu?</summary>
-                <p>A: Ensure you have <strong>selected text</strong>. The menu item is hidden when no text is selected.</p>
-            </details>
+            <section>
+                <h2 class="text-xl font-bold mb-6 text-gray-300">FAQ</h2>
+                <div class="space-y-4">
+                    <details class="group bg-card border border-border rounded-lg overflow-hidden">
+                        <summary class="p-4 flex justify-between items-center font-medium hover:bg-white/5 transition text-gray-300">
+                            Where is my data stored?
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-600 transition-transform duration-200"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 text-sm border-t border-white/5 mt-2">
+                            Locally. We adhere to a <strong>Local-First</strong> policy. All data resides in your browser's Chrome Storage Local. No cloud sync.
+                        </div>
+                    </details>
+                    <details class="group bg-card border border-border rounded-lg overflow-hidden">
+                        <summary class="p-4 flex justify-between items-center font-medium hover:bg-white/5 transition text-gray-300">
+                            Why don't I see the context menu?
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-600 transition-transform duration-200"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 text-sm border-t border-white/5 mt-2">
+                            The menu item is context-aware. It only appears when you have <strong>highlighted/selected text</strong> on the page.
+                        </div>
+                    </details>
+                </div>
+            </section>
         </div>
 
-    </div>
+    </main>
 
-    <footer>
-        <div class="container" style="text-align: center; color: #555; font-size: 0.9em;">
-            <p>&copy; 2026 Prompt Station.</p>
-        </div>
+    <footer class="py-8 border-t border-white/10 text-center bg-black text-gray-600 text-sm">
+        <p>&copy; 2026 Prompt Station.</p>
     </footer>
 
     <script>
@@ -142,6 +233,7 @@
                 en.style.display = 'none'; zh.style.display = 'block'; currentLang = 'zh';
             }
         }
+        document.getElementById('btn-lang').onclick = toggleLang;
     </script>
 </body>
 </html>
