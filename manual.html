@@ -3,109 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Manual - Prompt Station</title>
+    <title>User Manual - Prompt Station V6.3</title>
     <style>
         :root { --bg: #0f0f0f; --card: #1c1c1e; --text: #f5f5f7; --accent: #4285f4; --border: #333; }
         body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; margin: 0; line-height: 1.6; }
         nav { background: rgba(15,15,15,0.9); border-bottom: 1px solid var(--border); padding: 15px 5%; position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); }
         .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
         h1 { font-size: 2.5em; color: var(--accent); margin-bottom: 10px; }
-        h2 { border-left: 4px solid var(--accent); padding-left: 10px; margin-top: 40px; color: #fff; }
-        .step { background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; }
-        footer { text-align: center; padding: 40px; color: #666; font-size: 0.9em; border-top: 1px solid var(--border); margin-top: 60px; }
-        button { background: transparent; border: 1px solid #666; color: #aaa; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
-        button:hover { color: #fff; border-color: #fff; }
-        a { color: #888; text-decoration: none; }
-        a:hover { color: #fff; }
+        h2 { border-left: 4px solid var(--accent); padding-left: 10px; margin-top: 40px; color: #fff; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .step { background: var(--card); padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border); }
+        .tag { background: #333; color: #aaa; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; font-family: monospace; }
+        code { background: #222; padding: 2px 5px; border-radius: 4px; color: #a782ee; }
+        .btn-lang { background: transparent; border: 1px solid #555; color: #aaa; padding: 5px 10px; cursor: pointer; border-radius: 4px; }
+        .btn-lang:hover { color: #fff; border-color: #fff; }
     </style>
 </head>
 <body>
 
     <nav>
-        <div style="font-weight: bold; font-size: 1.2em;">📚 Prompt Station Manual</div>
-        <div>
-            <a href="index.html" style="margin-right: 15px;">Home</a>
-            <button onclick="toggleLang()">English / 中文</button>
-        </div>
+        <div style="font-weight: bold; color: var(--accent);">Prompt Station Manual</div>
+        <button class="btn-lang" onclick="toggleLang()">EN / 中文</button>
     </nav>
 
     <div class="container">
         
         <div id="content-zh">
-            <h1>使用手冊 (V6.4)</h1>
-            <p>歡迎使用 Prompt Station。V6.4 版本已內建「右鍵快蒐 Inbox」功能，讓收集 Prompt 變得前所未有的簡單。</p>
+            <h1>使用手冊 (V6.3)</h1>
+            <p>歡迎使用 Prompt Station。本手冊將協助您快速掌握 V6.3 的進階功能。</p>
 
-            <h2>1. 快速入門 (發送 Prompt)</h2>
+            <h2>1. 快速收集靈感 (Right-Click Inbox)</h2>
             <div class="step">
-                <p><strong>第一步：</strong> 點擊擴充功能圖示，點選您想要的標籤。</p>
-                <p><strong>第二步：</strong> 確認對話框為 <strong>空白狀態</strong>，然後按下 <strong>Enter</strong>。</p>
-                <p><strong>支援平台：</strong> ChatGPT, Gemini, Copilot, DeepSeek, 以及任何 Local AI (Ollama)。</p>
+                <p>在瀏覽任何網頁時，看到想要保存的 Prompt 或文案：</p>
+                <ol>
+                    <li>選取該段文字。</li>
+                    <li>點擊滑鼠右鍵，選擇 <strong>「Save to Prompt Station」</strong>。</li>
+                    <li>該內容會立即儲存至擴充功能的 <strong>Inbox</strong> 區域。</li>
+                    <li>打開擴充功能視窗，您可以將 Inbox 的內容移動到正式標籤庫中。</li>
+                </ol>
             </div>
 
-            <h2>2. 右鍵快蒐 (Inbox 蒐集)</h2>
+            <h2>2. 匯出對話記錄 (Export Chat)</h2>
             <div class="step">
-                <p>看到喜歡的 Prompt，不用切換視窗也能存！</p>
-                <ul>
-                    <li><strong>蒐集：</strong> 在任何網頁選取文字 ➔ 點擊滑鼠右鍵 ➔ 選擇 <strong>Save to Prompt Station</strong>。</li>
-                    <li><strong>整理：</strong> 點擊擴充功能圖示，您會看到上方出現 <strong>⚡ Inbox</strong> 區塊。</li>
-                    <li><strong>入庫：</strong> 點擊 Inbox 項目旁的 <strong>[Edit]</strong>，文字會自動帶入編輯區，您可以為它命名並存成永久標籤。</li>
-                </ul>
+                <p>想備份 ChatGPT 或 Gemini 的對話嗎？</p>
+                <ol>
+                    <li>打開擴充功能視窗。</li>
+                    <li>點擊底部的 <strong>「Export Chat (.md)」</strong> 按鈕。</li>
+                    <li>系統會自動偵測當前頁面的對話內容，並下載為 Markdown 檔案。</li>
+                </ol>
+                <p><em>注意：支援 ChatGPT, Gemini, Copilot 及 Local AI 介面。</em></p>
             </div>
 
-            <h2>3. 本地 AI 設定 (Ollama)</h2>
+            <h2>3. Local AI 與自訂域名</h2>
             <div class="step">
-                <p>支援本地端模型注入 (Localhost)。</p>
-                <ul>
-                    <li><strong>預設支援：</strong> <code>http://localhost:3000</code> 等常見位址。</li>
-                    <li><strong>自訂網域：</strong> 在設定頁下方輸入您的 IP 並點擊 <strong>Add</strong> 即可支援私有伺服器。</li>
-                </ul>
+                <p>若您使用本地部署的 AI (如 Ollama, LM Studio) 或自架 WebUI：</p>
+                <ol>
+                    <li>在擴充功能底部找到 <strong>「Local AI / Custom Domain」</strong>。</li>
+                    <li>輸入您的 WebUI IP 位址或網域 (例如 <code>localhost:3000</code> 或 <code>192.168.1.50</code>)。</li>
+                    <li>點擊 <strong>Add</strong>。</li>
+                    <li>現在，Prompt Station 也能在該網站上運作了！</li>
+                </ol>
             </div>
 
             <h2>常見問題 (FAQ)</h2>
             <details>
-                <summary>Q: Inbox 的資料存在哪裡？</summary>
-                <p>A: 100% 存在您的瀏覽器本地資料庫 (Chrome Storage Local)，不會上傳雲端，請放心存取私密內容。</p>
+                <summary>Q: 資料存在哪裡？會上傳雲端嗎？</summary>
+                <p>A: 不會。所有資料 100% 儲存在您的瀏覽器本地端 (Chrome Storage Local)。我們重視您的隱私。</p>
             </details>
             <details>
                 <summary>Q: 為什麼右鍵選單沒出現？</summary>
-                <p>A: 請確認您有「選取文字」。如果沒有選取文字，為了保持選單乾淨，選項會自動隱藏。</p>
+                <p>A: 請確認您已經「選取了文字」。為了保持選單整潔，只有在選取文字時該選項才會出現。</p>
             </details>
         </div>
 
         <div id="content-en" style="display: none;">
-            <h1>User Manual (V6.4)</h1>
-            <p>Welcome to Prompt Station V6.4, featuring the built-in "Quick Capture Inbox" for seamless prompt collection.</p>
+            <h1>User Manual (V6.3)</h1>
+            <p>Welcome to Prompt Station. This guide covers the advanced features of version 6.3.</p>
 
-            <h2>1. Quick Start (Injecting Prompts)</h2>
+            <h2>1. Right-Click Capture (Inbox)</h2>
             <div class="step">
-                <p><strong>Step 1:</strong> Click the extension icon and select your tags.</p>
-                <p><strong>Step 2:</strong> Ensure the chat input is <strong>EMPTY</strong>, then press <strong>Enter</strong>.</p>
-                <p><strong>Supported:</strong> ChatGPT, Gemini, Copilot, DeepSeek, and Local AI (Ollama).</p>
+                <p>Found a great prompt while browsing?</p>
+                <ol>
+                    <li>Select the text.</li>
+                    <li>Right-click and select <strong>"Save to Prompt Station"</strong>.</li>
+                    <li>The text is instantly saved to your <strong>Inbox</strong>.</li>
+                    <li>Open the extension popup to manage or categorize items from your Inbox later.</li>
+                </ol>
             </div>
 
-            <h2>2. Quick Capture (Inbox)</h2>
+            <h2>2. Export Chat History</h2>
             <div class="step">
-                <p>Save prompts without breaking your flow!</p>
-                <ul>
-                    <li><strong>Capture:</strong> Select text on any webpage ➔ Right-click ➔ Select <strong>Save to Prompt Station</strong>.</li>
-                    <li><strong>Review:</strong> Open the extension popup. You'll see a new <strong>⚡ Inbox</strong> section at the top.</li>
-                    <li><strong>Save:</strong> Click <strong>[Edit]</strong> next to an item to load it into the editor, then save it as a permanent tag.</li>
-                </ul>
+                <p>Need to backup your conversation?</p>
+                <ol>
+                    <li>Open the extension popup.</li>
+                    <li>Click the <strong>"Export Chat (.md)"</strong> button at the bottom.</li>
+                    <li>The extension scrapes the current conversation and downloads it as a Markdown file.</li>
+                </ol>
+                <p><em>Supported: ChatGPT, Gemini, Copilot, and Local AI interfaces.</em></p>
             </div>
 
-            <h2>3. Local AI Setup</h2>
+            <h2>3. Local AI & Custom Domains</h2>
             <div class="step">
-                <p>Supports Localhost and Custom Domains.</p>
-                <ul>
-                    <li><strong>Default:</strong> Works with <code>http://localhost:3000</code> and standard ports.</li>
-                    <li><strong>Custom:</strong> Enter your IP in the settings area and click <strong>Add</strong> to support private servers.</li>
-                </ul>
+                <p>Using Ollama, LM Studio, or a private WebUI?</p>
+                <ol>
+                    <li>Scroll to <strong>"Local AI / Custom Domain"</strong> in the popup.</li>
+                    <li>Enter your IP or domain (e.g., <code>localhost:3000</code> or <code>192.168.1.50</code>).</li>
+                    <li>Click <strong>Add</strong>.</li>
+                    <li>Prompt Station will now inject scripts into that domain to enable functionality.</li>
+                </ol>
             </div>
 
             <h2>FAQ</h2>
             <details>
-                <summary>Q: Where is Inbox data stored?</summary>
-                <p>A: 100% locally in your browser (Chrome Storage Local). No cloud sync.</p>
+                <summary>Q: Where is my data stored?</summary>
+                <p>A: 100% locally in your browser (Chrome Storage Local). No cloud sync, no tracking.</p>
             </details>
             <details>
                 <summary>Q: Why don't I see the right-click menu?</summary>
@@ -116,10 +126,9 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Prompt Station.</p>
-        <p style="margin-top: 10px;">
-            <a href="mailto:hopeshop999@gmail.com">Contact Developer</a>
-        </p>
+        <div class="container" style="text-align: center; color: #555; font-size: 0.9em;">
+            <p>&copy; 2026 Prompt Station.</p>
+        </div>
     </footer>
 
     <script>

@@ -12,6 +12,7 @@
         a { color: #888; text-decoration: none; }
         a:hover { color: #fff; }
         .back-link { display: inline-block; margin-bottom: 20px; color: #4285f4; }
+        .highlight { background: rgba(66, 133, 244, 0.1); padding: 2px 5px; border-radius: 4px; color: #8ab4f8; }
     </style>
 </head>
 <body>
@@ -19,30 +20,32 @@
     <a href="index.html" class="back-link">← Back to Home</a>
 
     <h1>Privacy Policy for Prompt Station</h1>
-    <p><strong>Last Updated: January 23, 2026</strong></p>
+    <p><strong>Last Updated: January 29, 2026</strong></p>
+
+    <p>Prompt Station ("the Extension") is designed with privacy as its core principle. We adhere to a strict <strong>"Local-First"</strong> policy.</p>
 
     <h2>1. Data Collection & Local Storage</h2>
-    <p>Prompt Station ("the Extension") adheres to a strict "Local-First" policy.</p>
     <ul>
-        <li><strong>Local Storage:</strong> All your custom prompts, rules, <strong>Inbox items</strong>, and settings are stored exclusively on your device using Chrome's <code>storage.local</code> API.</li>
-        <li><strong>No Cloud Sync:</strong> We do not transmit, sync, or backup your data to any external servers.</li>
+        <li><strong>Local Storage:</strong> All your custom prompts, rules, <strong>Inbox items</strong>, and user settings are stored exclusively on your device using Chrome's <code>storage.local</code> API.</li>
+        <li><strong>No Cloud Sync:</strong> We do not transmit, sync, or backup your data to any external servers. If you uninstall the extension, your data is removed (unless you have manually exported a JSON backup).</li>
+        <li><strong>Chat History:</strong> The "Export Chat" feature processes data temporarily in your browser memory to generate the markdown file. We do not store or upload your conversation history.</li>
     </ul>
 
     <h2>2. Permissions & Usage</h2>
     <p>We request the minimum permissions necessary for functionality:</p>
     <ul>
-        <li><strong>Context Menus (<code>contextMenus</code>):</strong> This permission is used solely to add the "Save to Prompt Station" option to your right-click menu. We only access the text you specifically select and choose to save. We do not monitor other browsing activities.</li>
-        <li><strong>Host Permissions:</strong> Used to enable the "Custom Domain" feature (for Local AI) and to inject scripts into AI chat platforms (ChatGPT, Gemini, etc.) to perform text insertion.</li>
+        <li><strong>Context Menus (<code class="highlight">contextMenus</code>):</strong> This permission is used solely to add the "Save to Prompt Station" option to your browser's right-click menu. We only access the text you specifically select and choose to save. We do not monitor other browsing activities.</li>
+        <li><strong>Host Permissions:</strong> Used to inject functionality into AI platforms (ChatGPT, Gemini, Copilot) and to enable the <strong>"Custom Domain"</strong> feature for Local AI users. We do not track your browsing history on other websites.</li>
     </ul>
 
     <h2>3. Third-Party Services</h2>
     <ul>
         <li><strong>No Tracking:</strong> The Extension does not collect usage analytics or user behavior data.</li>
-        <li><strong>Payments:</strong> We use PayPal for optional donations. We do not handle any financial data.</li>
+        <li><strong>Donations:</strong> We may use PayPal/Stripe for optional donations. We do not handle or store any financial data.</li>
     </ul>
 
     <h2>4. Contact</h2>
-    <p>If you have any questions, please contact us at: <a href="mailto:hopeshop999@gmail.com">hopeshop999@gmail.com</a></p>
+    <p>If you have any questions regarding this policy, please contact us at: <a href="mailto:hopeshop999@gmail.com">hopeshop999@gmail.com</a></p>
 
 </body>
 </html>
