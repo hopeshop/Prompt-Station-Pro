@@ -5,47 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Prompt Station</title>
     <style>
-        body { background-color: #0f0f0f; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; line-height: 1.6; padding: 40px; max-width: 800px; margin: 0 auto; }
-        h1 { color: #4285f4; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        h2 { color: #a782ee; margin-top: 30px; }
-        strong { color: #fff; }
-        a { color: #888; text-decoration: none; }
-        a:hover { color: #fff; }
-        .back-link { display: inline-block; margin-bottom: 20px; color: #4285f4; }
-        .highlight { background: rgba(66, 133, 244, 0.1); padding: 2px 5px; border-radius: 4px; color: #8ab4f8; }
+        body { 
+            background-color: #ffffff; 
+            color: #333333; 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            line-height: 1.6; 
+            padding: 40px; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            font-size: 15px;
+        }
+        h1 { color: #222; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-top: 0; }
+        h2 { color: #2c3e50; margin-top: 30px; font-size: 1.2em; border-left: 4px solid #4285f4; padding-left: 10px; }
+        h3 { color: #555; font-size: 1em; margin-top: 20px; font-weight: bold; }
+        p { margin-bottom: 15px; text-align: justify; }
+        ul { margin-bottom: 15px; }
+        li { margin-bottom: 8px; }
+        .date { color: #777; font-size: 0.9em; margin-bottom: 30px; display: block; }
+        .container { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+        a { color: #4285f4; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .back-link { display: inline-block; margin-bottom: 20px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <a href="index.html" class="back-link">← Back to Home</a>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Prompt Station</a>
 
-    <h1>Privacy Policy for Prompt Station</h1>
-    <p><strong>Last Updated: January 29, 2026</strong></p>
+        <h1>Privacy Policy</h1>
+        <span class="date">Effective Date: January 29, 2026</span>
 
-    <p>Prompt Station ("the Extension") is designed with privacy as its core principle. We adhere to a strict <strong>"Local-First"</strong> policy.</p>
+        <p>This Privacy Policy describes how <strong>Prompt Station</strong> ("we", "us", or "our") handles your information in connection with the use of our Chrome Browser Extension (the "Extension").</p>
+        
+        <p>We are committed to protecting your personal privacy. Unlike many other extensions, <strong>we strictly adhere to a "Local-First" architecture.</strong> We do not collect, transmit, store, or sell your personal data to any external servers.</p>
 
-    <h2>1. Data Collection & Local Storage</h2>
-    <ul>
-        <li><strong>Local Storage:</strong> All your custom prompts, rules, <strong>Inbox items</strong>, and user settings are stored exclusively on your device using Chrome's <code>storage.local</code> API.</li>
-        <li><strong>No Cloud Sync:</strong> We do not transmit, sync, or backup your data to any external servers. If you uninstall the extension, your data is removed (unless you have manually exported a JSON backup).</li>
-        <li><strong>Chat History:</strong> The "Export Chat" feature processes data temporarily in your browser memory to generate the markdown file. We do not store or upload your conversation history.</li>
-    </ul>
+        <h2>1. Information Collection and Use</h2>
+        <p>We prioritize your privacy by minimizing data collection. The specific types of information handled by the Extension are described below:</p>
 
-    <h2>2. Permissions & Usage</h2>
-    <p>We request the minimum permissions necessary for functionality:</p>
-    <ul>
-        <li><strong>Context Menus (<code class="highlight">contextMenus</code>):</strong> This permission is used solely to add the "Save to Prompt Station" option to your browser's right-click menu. We only access the text you specifically select and choose to save. We do not monitor other browsing activities.</li>
-        <li><strong>Host Permissions:</strong> Used to inject functionality into AI platforms (ChatGPT, Gemini, Copilot) and to enable the <strong>"Custom Domain"</strong> feature for Local AI users. We do not track your browsing history on other websites.</li>
-    </ul>
+        <h3>A. User-Generated Content (Prompts & Settings)</h3>
+        <p>All data you create or save using the Extension, including but not limited to:</p>
+        <ul>
+            <li>Custom prompts and templates</li>
+            <li>Configuration settings and rules</li>
+            <li>Items saved to the "Inbox"</li>
+            <li>Imported JSON configuration files</li>
+        </ul>
+        <p><strong>Storage Location:</strong> This data is stored exclusively on your local device using the Chrome Storage API (<code>chrome.storage.local</code>). It is never synchronized to our servers.</p>
 
-    <h2>3. Third-Party Services</h2>
-    <ul>
-        <li><strong>No Tracking:</strong> The Extension does not collect usage analytics or user behavior data.</li>
-        <li><strong>Donations:</strong> We may use PayPal/Stripe for optional donations. We do not handle or store any financial data.</li>
-    </ul>
+        <h3>B. Chat History Export Data</h3>
+        <p>The "Export Chat" feature allows you to download conversation logs from supported AI platforms. This process occurs entirely within your browser's volatile memory. We do not retain, upload, or view your conversation history.</p>
 
-    <h2>4. Contact</h2>
-    <p>If you have any questions regarding this policy, please contact us at: <a href="mailto:hopeshop999@gmail.com">hopeshop999@gmail.com</a></p>
+        <h2>2. Permissions Justification</h2>
+        <p>To function correctly, the Extension requires specific browser permissions. We use these permissions solely for the purposes stated below:</p>
+        
+        <ul>
+            <li><strong>Storage (<code>storage</code>):</strong> strictly used to persist your preferences and prompts locally on your hard drive.</li>
+            <li><strong>Context Menus (<code>contextMenus</code>):</strong> used to add the "Save to Prompt Station" option to the browser's right-click menu. We only process the specific text you highlight and select. We do not passively monitor your browsing activity.</li>
+            <li><strong>Host Permissions (<code>*://*/*</code>):</strong> required for two technical reasons:
+                <ol>
+                    <li>To inject automation scripts into AI platforms (e.g., ChatGPT, Gemini) to enable the "One-Click Deploy" feature.</li>
+                    <li>To support "Local AI" functionality, allowing users to define custom domains (e.g., localhost, private IP addresses) where the extension should operate.</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h2>3. Data Security</h2>
+        <p>Since we do not maintain a backend database for user data, your information is as secure as your personal computer and browser environment. We recommend keeping your browser and operating system updated to ensure local data security.</p>
+
+        <h2>4. Third-Party Sharing</h2>
+        <p>We do not share, sell, rent, or trade your personal information with any third parties. There are no tracking pixels, analytics scripts (such as Google Analytics), or advertising SDKs embedded in the Extension.</p>
+
+        <h2>5. Changes to This Privacy Policy</h2>
+        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top. You are advised to review this Privacy Policy periodically for any changes.</p>
+
+        <h2>6. Contact Us</h2>
+        <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:</p>
+        <p><strong>Email:</strong> <a href="mailto:hopeshop999@gmail.com">hopeshop999@gmail.com</a></p>
+    </div>
 
 </body>
 </html>
