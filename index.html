@@ -62,7 +62,7 @@
         
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-border/50 text-blue-400 text-xs font-mono mb-8 border border-white/10 hover:border-blue-500/50 transition cursor-default">
             <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
-            <span data-i18n="hero_badge">UPDATE: Chat Export & Local AI Engine</span>
+            <span data-i18n="hero_badge">V6.3: Memory System + Multi-Language + Local AI IDE</span>
         </div>
         
         <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight mb-8 leading-[1.1]">
@@ -71,8 +71,8 @@
         </h1>
         
         <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light" data-i18n="hero_desc">
-            A developer-first prompt manager. Right-click to capture, press Enter to deploy. 
-            Supports ChatGPT, Gemini, Copilot & Local LLMs. 
+            A developer-first prompt manager with intelligent memory system. Right-click to capture, press Enter to deploy.
+            Built-in Local AI IDE with dual-layer memory (Fixed + Dynamic), AI auto-extract, and multi-language support.
             <span class="text-white font-mono text-sm bg-white/5 px-1 rounded">100% Local Storage.</span>
         </p>
         
@@ -126,6 +126,45 @@
                     Backup your knowledge. Export full chat threads to clean <b>Markdown (.md)</b> files. Perfect for documentation and sharing.
                 </p>
             </div>
+
+            <div class="feature-card p-8 rounded-2xl bg-card border border-border group relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition">
+                    <i class="fa-solid fa-brain text-8xl text-orange-500"></i>
+                </div>
+                <div class="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6 text-orange-400 text-2xl border border-orange-500/20 group-hover:scale-110 transition duration-300">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-white" data-i18n="f4_title">Intelligent Memory System</h3>
+                <p class="text-gray-400 leading-relaxed" data-i18n="f4_desc">
+                    Dual-layer context management: <b>Fixed Memory</b> for code/docs and <b>Dynamic Memory</b> for AI-extracted keywords. Auto-detect context size, supports Paste Images.
+                </p>
+            </div>
+
+            <div class="feature-card p-8 rounded-2xl bg-card border border-border group relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition">
+                    <i class="fa-solid fa-language text-8xl text-pink-500"></i>
+                </div>
+                <div class="w-14 h-14 bg-pink-500/10 rounded-xl flex items-center justify-center mb-6 text-pink-400 text-2xl border border-pink-500/20 group-hover:scale-110 transition duration-300">
+                    <i class="fa-solid fa-language"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-white" data-i18n="f5_title">Multi-Language UI</h3>
+                <p class="text-gray-400 leading-relaxed" data-i18n="f5_desc">
+                    Seamless <b>Chinese/English</b> switching. Language syncs automatically across extension and Local AI interface. Real-time updates, no refresh needed.
+                </p>
+            </div>
+
+            <div class="feature-card p-8 rounded-2xl bg-card border border-border group relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition">
+                    <i class="fa-solid fa-gauge-high text-8xl text-cyan-500"></i>
+                </div>
+                <div class="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-6 text-cyan-400 text-2xl border border-cyan-500/20 group-hover:scale-110 transition duration-300">
+                    <i class="fa-solid fa-gauge-high"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 text-white" data-i18n="f6_title">Performance Optimized</h3>
+                <p class="text-gray-400 leading-relaxed" data-i18n="f6_desc">
+                    Auto-detect model context sizes (Qwen2.5: 16K, Llama 3.1: 32K). <b>2-3s response</b> on RTX 5060 Ti. Smart token management for smooth local AI experience.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -144,29 +183,41 @@
         const translations = {
             zh: {
                 nav_manual: "使用手冊", nav_install: "免費安裝",
-                hero_badge: "V6.3 重大更新：對話匯出 & Local AI 引擎",
+                hero_badge: "V6.3 重大更新：記憶系統 + 多語言 + 本地 AI IDE",
                 hero_title_1: "AI 工程師的", hero_title_2: "終極生產力系統",
-                hero_desc: "告別重複複製貼上。右鍵收集靈感、Enter 一鍵注入指令、匯出 Markdown 對話記錄。專為 ChatGPT、Gemini 與 Local AI 打造。",
+                hero_desc: "開發者優先的提示管理器，配備智能記憶系統。右鍵收集靈感、Enter 一鍵部署。內建本地 AI IDE，支援雙層記憶（固定+動態）、AI 自動提取、多語言介面。",
                 hero_cta: "加到 Chrome - 免費", hero_learn: "功能介紹",
-                f1_title: "右鍵靈感收集 (Inbox)", 
+                f1_title: "右鍵靈感收集 (Inbox)",
                 f1_desc: "看到不錯的 Prompt？選取文字並按右鍵即可儲存。靈感直接進入 Inbox，完全不打斷您的閱讀體驗。",
-                f2_title: "一鍵極速發送", 
+                f2_title: "一鍵極速發送",
                 f2_desc: "點擊標籤，自動填入並發送。搭載最新 Shadow DOM 穿透引擎，完美支援所有主流 AI 平台。",
-                f3_title: "對話記錄匯出", 
-                f3_desc: "將您與 AI 的珍貴對話一鍵備份。支援匯出為乾淨的 Markdown (.md) 格式，方便筆記與分享。"
+                f3_title: "對話記錄匯出",
+                f3_desc: "將您與 AI 的珍貴對話一鍵備份。支援匯出為乾淨的 Markdown (.md) 格式，方便筆記與分享。",
+                f4_title: "智能記憶系統",
+                f4_desc: "雙層上下文管理：<b>固定記憶</b>存放程式碼/文檔，<b>動態記憶</b>由 AI 自動提取關鍵字。自動偵測上下文大小，支援貼上圖片。",
+                f5_title: "多語言介面",
+                f5_desc: "無縫<b>中英文</b>切換。語言設定自動同步擴充功能與本地 AI 介面。即時更新，無需重新整理。",
+                f6_title: "效能優化",
+                f6_desc: "自動偵測模型上下文大小（Qwen2.5: 16K, Llama 3.1: 32K）。RTX 5060 Ti 上<b>2-3秒回應</b>。智能 token 管理，流暢的本地 AI 體驗。"
             },
             en: {
                 nav_manual: "Manual", nav_install: "Get Extension",
-                hero_badge: "Update V6.3: Export Chat & Local AI Engine",
+                hero_badge: "V6.3: Memory System + Multi-Language + Local AI IDE",
                 hero_title_1: "The OS for", hero_title_2: "AI Engineers",
-                hero_desc: "A developer-first prompt manager. Right-click to capture, press Enter to deploy. Supports ChatGPT, Gemini, Copilot & Local LLMs. 100% Local Storage.",
+                hero_desc: "A developer-first prompt manager with intelligent memory system. Right-click to capture, press Enter to deploy. Built-in Local AI IDE with dual-layer memory (Fixed + Dynamic), AI auto-extract, and multi-language support.",
                 hero_cta: "Add to Chrome - Free", hero_learn: "See Features",
-                f1_title: "Quick Capture (Inbox)", 
+                f1_title: "Quick Capture (Inbox)",
                 f1_desc: "Don't break your flow. Select text, Right-click, and send it straight to your Prompt Inbox. Organize later, stay focused now.",
-                f2_title: "One-Click Deploy", 
+                f2_title: "One-Click Deploy",
                 f2_desc: "Select a tag, press Enter. Our Shadow DOM Engine handles the rest. Works on ChatGPT, Gemini, Copilot, and even custom WebUIs.",
-                f3_title: "Export Chat History", 
-                f3_desc: "Backup your knowledge. Export full chat threads to clean Markdown (.md) files. Perfect for documentation and sharing."
+                f3_title: "Export Chat History",
+                f3_desc: "Backup your knowledge. Export full chat threads to clean Markdown (.md) files. Perfect for documentation and sharing.",
+                f4_title: "Intelligent Memory System",
+                f4_desc: "Dual-layer context management: <b>Fixed Memory</b> for code/docs and <b>Dynamic Memory</b> for AI-extracted keywords. Auto-detect context size, supports Paste Images.",
+                f5_title: "Multi-Language UI",
+                f5_desc: "Seamless <b>Chinese/English</b> switching. Language syncs automatically across extension and Local AI interface. Real-time updates, no refresh needed.",
+                f6_title: "Performance Optimized",
+                f6_desc: "Auto-detect model context sizes (Qwen2.5: 16K, Llama 3.1: 32K). <b>2-3s response</b> on RTX 5060 Ti. Smart token management for smooth local AI experience."
             }
         };
 

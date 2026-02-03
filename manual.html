@@ -88,6 +88,60 @@
 
             <section class="mb-12">
                 <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                    <span class="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center text-sm"><i class="fa-solid fa-brain"></i></span>
+                    智能記憶系統 (Memory System)
+                </h2>
+                <div class="bg-card border border-border rounded-xl p-6 step-card">
+                    <p class="mb-4 text-gray-300">本地 AI 配備雙層記憶系統，讓您的對話更有上下文感知能力：</p>
+
+                    <h3 class="text-lg font-semibold text-blue-400 mt-6 mb-3">📌 固定記憶 (Fixed Memory)</h3>
+                    <ul class="space-y-3 text-gray-400 mb-6">
+                        <li class="flex gap-3">
+                            <span class="text-blue-400">•</span>
+                            <span>用於存放<strong>程式碼、文檔、API 規格</strong>等需要持續參考的內容</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-blue-400">•</span>
+                            <span>支援 <code>Ctrl+V</code> 直接貼上程式碼或圖片</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-blue-400">•</span>
+                            <span>內容會持續保留，直到您手動清空</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="text-lg font-semibold text-purple-400 mt-6 mb-3">⚡ 動態記憶 (Dynamic Memory)</h3>
+                    <ul class="space-y-3 text-gray-400 mb-6">
+                        <li class="flex gap-3">
+                            <span class="text-purple-400">•</span>
+                            <span>AI 會<strong>自動從對話中提取關鍵資訊</strong>（變數名稱、檔案路徑、重要概念等）</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-purple-400">•</span>
+                            <span>您可以手動編輯、新增或刪除記憶內容</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-purple-400">•</span>
+                            <span>點擊 <strong class="text-white">「AI總結記憶」</strong> 可讓 AI 濃縮整理記憶內容</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="text-lg font-semibold text-green-400 mt-6 mb-3">💾 記憶模式切換</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex gap-3">
+                            <span class="text-green-400">•</span>
+                            <span><strong>System Message 模式</strong>：記憶只在開頭發送一次（節省 token）</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-green-400">•</span>
+                            <span><strong>Repeat 模式</strong>：每輪對話都包含完整記憶（更穩定，適合本地 AI）</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
                     <span class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center text-sm"><i class="fa-solid fa-server"></i></span>
                     Local AI 與自訂域名
                 </h2>
@@ -105,6 +159,58 @@
                         <li class="flex gap-3">
                             <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">3</span>
                             <span>點擊 <strong>Add</strong>。現在，Prompt Station 也能在該網站上運作了！</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                    <span class="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-sm"><i class="fa-solid fa-gauge-high"></i></span>
+                    效能優化建議
+                </h2>
+                <div class="bg-card border border-border rounded-xl p-6 step-card">
+                    <p class="mb-4 text-gray-300">如何獲得最佳本地 AI 效能：</p>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">1</span>
+                            <span><strong class="text-white">控制記憶大小</strong>：固定記憶若放入大量程式碼（如 1000 行），會大幅增加回應時間。建議只放入當前任務相關的內容。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">2</span>
+                            <span><strong class="text-white">使用適當的模型</strong>：Qwen2.5-Coder 14B 是程式設計的最佳選擇，在 RTX 5060 Ti 16GB 上可達 2-3 秒回應。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">3</span>
+                            <span><strong class="text-white">定期清理記憶</strong>：使用「AI總結記憶」功能將動態記憶濃縮，保持記憶精簡。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">4</span>
+                            <span><strong class="text-white">自動上下文檢測</strong>：系統會自動識別模型的上下文大小（Qwen2.5: 16K, Llama 3.1: 32K）並優化。</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                    <span class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center text-sm"><i class="fa-solid fa-language"></i></span>
+                    多語言介面切換
+                </h2>
+                <div class="bg-card border border-border rounded-xl p-6 step-card">
+                    <p class="mb-4 text-gray-300">介面語言會自動同步：</p>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">1</span>
+                            <span>點擊擴充功能視窗右上角的 <strong class="text-white">中 / EN</strong> 按鈕切換語言。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">2</span>
+                            <span>本地 AI 視窗會<strong class="text-white">即時自動切換</strong>語言，無需重新整理頁面。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">3</span>
+                            <span>所有介面元素（按鈕、提示、佔位符）都會切換為對應語言。</span>
                         </li>
                     </ul>
                 </div>
@@ -131,11 +237,92 @@
                             為了保持選單整潔，只有在您 <strong>「選取了一段文字」</strong> 時，該選項才會出現。
                         </div>
                     </details>
+                    <details class="group bg-card border border-border rounded-lg overflow-hidden">
+                        <summary class="p-4 flex justify-between items-center font-medium hover:bg-white/5 transition text-gray-300">
+                            動態記憶的「...」是什麼意思？
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-600 transition-transform duration-200"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 text-sm border-t border-white/5 mt-2">
+                            這是預覽截斷符號。完整的記憶內容仍然存在，只是在顯示時為了節省空間而截斷。AI 在運作時會使用完整內容。
+                        </div>
+                    </details>
+                    <details class="group bg-card border border-border rounded-lg overflow-hidden">
+                        <summary class="p-4 flex justify-between items-center font-medium hover:bg-white/5 transition text-gray-300">
+                            本地 AI 回應很慢怎麼辦？
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-600 transition-transform duration-200"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 text-sm border-t border-white/5 mt-2">
+                            主要原因是固定記憶內容過多。嘗試清空或減少固定記憶的內容。測試顯示，在 RTX 5060 Ti 16GB 上，空記憶時回應僅需 2-3 秒，但 1000 行程式碼會增加至 20+ 秒。
+                        </div>
+                    </details>
+                    <details class="group bg-card border border-border rounded-lg overflow-hidden">
+                        <summary class="p-4 flex justify-between items-center font-medium hover:bg-white/5 transition text-gray-300">
+                            匯出功能會包含記憶內容嗎？
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-600 transition-transform duration-200"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 text-sm border-t border-white/5 mt-2">
+                            會的！點擊「Export Chat (.md)」會匯出完整的對話記錄，包括固定記憶和動態記憶的內容。
+                        </div>
+                    </details>
                 </div>
             </section>
         </div>
 
         <div id="content-en" style="display: none;">
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                    <span class="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center text-sm"><i class="fa-solid fa-brain"></i></span>
+                    Intelligent Memory System
+                </h2>
+                <div class="bg-card border border-border rounded-xl p-6 step-card">
+                    <p class="mb-4 text-gray-300">Local AI features a dual-layer memory system for context-aware conversations:</p>
+
+                    <h3 class="text-lg font-semibold text-blue-400 mt-6 mb-3">📌 Fixed Memory</h3>
+                    <ul class="space-y-3 text-gray-400 mb-6">
+                        <li class="flex gap-3">
+                            <span class="text-blue-400">•</span>
+                            <span>Store <strong>code, documentation, API specs</strong> that need continuous reference</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-blue-400">•</span>
+                            <span>Supports <code>Ctrl+V</code> to paste code or images directly</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-blue-400">•</span>
+                            <span>Content persists until you manually clear it</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="text-lg font-semibold text-purple-400 mt-6 mb-3">⚡ Dynamic Memory</h3>
+                    <ul class="space-y-3 text-gray-400 mb-6">
+                        <li class="flex gap-3">
+                            <span class="text-purple-400">•</span>
+                            <span>AI <strong>auto-extracts key information</strong> from conversations (variable names, file paths, important concepts)</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-purple-400">•</span>
+                            <span>You can manually edit, add, or delete memory contents</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-purple-400">•</span>
+                            <span>Click <strong class="text-white">"AI Summarize"</strong> to let AI condense and organize memory</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="text-lg font-semibold text-green-400 mt-6 mb-3">💾 Memory Mode Toggle</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex gap-3">
+                            <span class="text-green-400">•</span>
+                            <span><strong>System Message Mode</strong>: Memory sent once at start (saves tokens)</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-green-400">•</span>
+                            <span><strong>Repeat Mode</strong>: Full memory included in every turn (more stable for local AI)</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
             <section class="mb-12">
                 <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
                     <span class="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center text-sm"><i class="fa-solid fa-inbox"></i></span>
@@ -191,6 +378,58 @@
                 </div>
             </section>
 
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                    <span class="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-sm"><i class="fa-solid fa-gauge-high"></i></span>
+                    Performance Optimization
+                </h2>
+                <div class="bg-card border border-border rounded-xl p-6 step-card">
+                    <p class="mb-4 text-gray-300">How to achieve optimal local AI performance:</p>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">1</span>
+                            <span><strong class="text-white">Control Memory Size</strong>: Large code blocks (e.g. 1000 lines) in fixed memory significantly increase response time. Only include content relevant to current task.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">2</span>
+                            <span><strong class="text-white">Use Appropriate Models</strong>: Qwen2.5-Coder 14B is optimal for coding, achieving 2-3s responses on RTX 5060 Ti 16GB.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">3</span>
+                            <span><strong class="text-white">Clean Memory Regularly</strong>: Use "AI Summarize" to condense dynamic memory and keep it lean.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">4</span>
+                            <span><strong class="text-white">Auto Context Detection</strong>: System auto-detects model context sizes (Qwen2.5: 16K, Llama 3.1: 32K) for optimization.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
+                    <span class="w-8 h-8 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center text-sm"><i class="fa-solid fa-language"></i></span>
+                    Multi-Language Interface
+                </h2>
+                <div class="bg-card border border-border rounded-xl p-6 step-card">
+                    <p class="mb-4 text-gray-300">Interface language syncs automatically:</p>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">1</span>
+                            <span>Click the <strong class="text-white">中 / EN</strong> button in the extension popup to switch language.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">2</span>
+                            <span>Local AI window will <strong class="text-white">automatically switch in real-time</strong>, no page refresh needed.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="bg-gray-800 text-gray-400 w-6 h-6 rounded flex items-center justify-center text-xs shrink-0">3</span>
+                            <span>All UI elements (buttons, prompts, placeholders) will switch to corresponding language.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
             <section>
                 <h2 class="text-xl font-bold mb-6 text-gray-300">FAQ</h2>
                 <div class="space-y-4">
@@ -210,6 +449,33 @@
                         </summary>
                         <div class="p-4 pt-0 text-gray-400 text-sm border-t border-white/5 mt-2">
                             The menu item is context-aware. It only appears when you have <strong>highlighted/selected text</strong> on the page.
+                        </div>
+                    </details>
+                    <details class="group bg-card border border-border rounded-lg overflow-hidden">
+                        <summary class="p-4 flex justify-between items-center font-medium hover:bg-white/5 transition text-gray-300">
+                            What does "..." mean in Dynamic Memory?
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-600 transition-transform duration-200"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 text-sm border-t border-white/5 mt-2">
+                            It's a preview truncation indicator. The full memory content is still there, just truncated in display to save space. AI uses the complete content during operation.
+                        </div>
+                    </details>
+                    <details class="group bg-card border border-border rounded-lg overflow-hidden">
+                        <summary class="p-4 flex justify-between items-center font-medium hover:bg-white/5 transition text-gray-300">
+                            Local AI response is slow, what to do?
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-600 transition-transform duration-200"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 text-sm border-t border-white/5 mt-2">
+                            Main reason is too much content in fixed memory. Try clearing or reducing fixed memory content. Tests show 2-3s response on RTX 5060 Ti 16GB with empty memory, but 1000 lines of code increases it to 20+ seconds.
+                        </div>
+                    </details>
+                    <details class="group bg-card border border-border rounded-lg overflow-hidden">
+                        <summary class="p-4 flex justify-between items-center font-medium hover:bg-white/5 transition text-gray-300">
+                            Does export include memory content?
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-600 transition-transform duration-200"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 text-sm border-t border-white/5 mt-2">
+                            Yes! Clicking "Export Chat (.md)" exports the complete conversation history, including fixed memory and dynamic memory content.
                         </div>
                     </details>
                 </div>
